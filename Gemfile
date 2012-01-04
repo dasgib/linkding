@@ -17,9 +17,10 @@ end
 
 group :test do
   gem 'rspec'
-  gem 'rspec-rails'
   gem 'cucumber'
   gem 'cucumber-rails'
   gem 'capybara'
   gem 'database_cleaner'
 end
+
+gem 'rspec-rails', group: :development
