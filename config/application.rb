@@ -61,5 +61,8 @@ module Linkding
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Configuring rails generators to use sass as default stylesheet syntax
+    config.sass.preferred_syntax = :sass
   end
 end
