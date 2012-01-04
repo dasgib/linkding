@@ -16,11 +16,11 @@ group :assets do
 end
 
 group :test do
-  gem 'rspec'
+  gem 'rspec', git: "git://github.com/rspec/rspec.git"
   gem 'cucumber'
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', require: false
   gem 'capybara'
   gem 'database_cleaner'
 end
 
-gem 'rspec-rails', group: :development
+gem 'rspec-rails', git: "git://github.com/rspec/rspec-rails.git", group: [:development, :test]
