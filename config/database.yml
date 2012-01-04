@@ -17,8 +17,8 @@ development:
   encoding: unicode
   database: linkding_development
   pool: 5
-  username: linkding
-  password:
+  # username: linkding
+  # password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -43,13 +43,20 @@ test:
   encoding: unicode
   database: linkding_test
   pool: 5
-  username: linkding
-  password:
+  # username: linkding
+  # password:
 
 production:
   adapter: postgresql
   encoding: unicode
   database: linkding_production
   pool: 5
-  username: linkding
-  password:
+  # username: linkding
+  # password:
+
+staging:
+  staging:
+  adapter: postgresql
+  encoding: unicode
+  database: linkding_staging
+  pool: 5
