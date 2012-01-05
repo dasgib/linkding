@@ -21,6 +21,8 @@ group :test do
   gem 'cucumber-rails', require: false
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'simplecov', require: false
+  gem 'simplecov-rcov', require: false
 end
 
 gem 'rspec-rails', git: "git://github.com/rspec/rspec-rails.git", group: [:development, :test]
