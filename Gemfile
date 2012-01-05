@@ -11,7 +11,7 @@ gem 'haml-rails', group: :development
 group :assets do
   gem 'sass-rails',   '~> 3.2.0'
   gem 'coffee-rails', '~> 3.2.0'
-
+  gem 'therubyracer'
   gem 'uglifier', '>= 1.0.3'
 end
 
@@ -22,6 +22,8 @@ group :test do
   gem 'cucumber-rails-training-wheels'
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'simplecov', require: false
+  gem 'simplecov-rcov', require: false
 end
 
 gem 'rspec-rails', git: "git://github.com/rspec/rspec-rails.git", group: [:development, :test]
