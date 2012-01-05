@@ -6,4 +6,11 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
+    - flash.each do |name, msg|
+      = content_tag :div, msg, :id => "flash_#{name}"
+
+    - if user_signed_in?
+      = link_to "Sign out", destroy_user_session_path
+    - else
+      = link_to "Sign in", new_user_session_path
     = yield
