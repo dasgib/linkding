@@ -19,6 +19,7 @@ group :test do
   gem 'rspec', git: "git://github.com/rspec/rspec.git"
   gem 'cucumber'
   gem 'cucumber-rails', require: false
+  gem 'cucumber-rails-training-wheels'
   gem 'capybara'
   gem 'database_cleaner'
 end
