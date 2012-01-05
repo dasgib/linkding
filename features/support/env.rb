@@ -4,6 +4,17 @@
 # instead of editing this one. Cucumber will automatically load all features/**/*.rb
 # files.
 
+require 'simplecov'
+SimpleCov.start 'rails'
+require 'simplecov-rcov'
+class SimpleCov::Formatter::MergedFormatter
+  def format(result)
+     SimpleCov::Formatter::HTMLFormatter.new.format(result)
+     SimpleCov::Formatter::RcovFormatter.new.format(result)
+  end
+end
+SimpleCov.formatter = SimpleCov::Formatter::MergedFormatter
+
 require 'cucumber/rails'
 
 # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
