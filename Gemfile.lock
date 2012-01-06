@@ -1,22 +1,3 @@
-GIT
-  remote: git://github.com/rspec/rspec-rails.git
-  revision: 320ea0f5c051bcb4e7cb7ef677c69a30a80c7c0d
-  specs:
-    rspec-rails (2.8.0.rc2)
-      actionpack (>= 3.0)
-      activesupport (>= 3.0)
-      railties (>= 3.0)
-      rspec (= 2.8.0.rc2)
-
-GIT
-  remote: git://github.com/rspec/rspec.git
-  revision: 15e7abd32096deb2633c3261b9cae81d1de3aad5
-  specs:
-    rspec (2.8.0.rc2)
-      rspec-core (= 2.8.0.rc2)
-      rspec-expectations (= 2.8.0.rc2)
-      rspec-mocks (= 2.8.0.rc2)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -139,10 +120,19 @@ GEM
     rake (0.9.2.2)
     rdoc (3.12)
       json (~> 1.4)
-    rspec-core (2.8.0.rc2)
-    rspec-expectations (2.8.0.rc2)
+    rspec (2.8.0)
+      rspec-core (~> 2.8.0)
+      rspec-expectations (~> 2.8.0)
+      rspec-mocks (~> 2.8.0)
+    rspec-core (2.8.0)
+    rspec-expectations (2.8.0)
       diff-lcs (~> 1.1.2)
-    rspec-mocks (2.8.0.rc2)
+    rspec-mocks (2.8.0)
+    rspec-rails (2.8.1)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec (~> 2.8.0)
     rubyzip (0.9.5)
     sass (3.1.12)
     sass-rails (3.2.3)
@@ -200,8 +190,8 @@ DEPENDENCIES
   jquery-rails
   pg
   rails (= 3.2.0.rc2)
-  rspec!
-  rspec-rails!
+  rspec (~> 2.8.0)
+  rspec-rails (~> 2.8.1)
   sass-rails (~> 3.2.0)
   simple_form
   simplecov

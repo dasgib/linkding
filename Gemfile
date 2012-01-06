@@ -19,7 +19,7 @@ group :assets do
 end
 
 group :test do
-  gem 'rspec', git: "git://github.com/rspec/rspec.git"
+  gem 'rspec', '~> 2.8.0'
   gem 'cucumber'
   gem 'cucumber-rails', require: false
   gem 'cucumber-rails-training-wheels'
@@ -29,4 +29,4 @@ group :test do
   gem 'simplecov-rcov', require: false
 end
 
-gem 'rspec-rails', git: "git://github.com/rspec/rspec-rails.git", group: [:development, :test]
+gem 'rspec-rails', '~> 2.8.1', group: [:development, :test]
