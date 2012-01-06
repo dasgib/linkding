@@ -30,3 +30,8 @@ group :test do
 end
 
 gem 'rspec-rails', '~> 2.8.1', group: [:development, :test]
+
+# Deployment
+group :development do
+  gem 'capistrano'
+end
