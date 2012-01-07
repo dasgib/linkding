@@ -20,6 +20,7 @@ end
 
 group :test do
   gem 'rspec', '~> 2.8.0'
+  gem 'spork', '> 0.9.0.rc'
   gem 'cucumber'
   gem 'cucumber-rails', require: false
   gem 'cucumber-rails-training-wheels'
@@ -39,5 +40,6 @@ group :development do
   gem 'guard'
   gem 'guard-rspec'
   gem 'guard-cucumber'
+  gem 'guard-spork'
   # gem 'libnotify' # For guard notifications on linux
 end
