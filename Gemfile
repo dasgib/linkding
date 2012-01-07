@@ -42,4 +42,5 @@ group :development do
   gem 'guard-cucumber'
   gem 'guard-spork'
   # gem 'libnotify' # For guard notifications on linux
+  gem 'ruby_gntp' # For the growl network protocol
 end
