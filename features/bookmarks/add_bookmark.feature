@@ -37,3 +37,15 @@ Feature: Add bookmark
     And I go to the new bookmark page
     And I press "Create bookmark"
     Then I want to see "Please enter a valid URL"
+
+  Scenario: I want to access all my bookmarks
+    Given I am signed in
+    And I have bookmarks
+    And I go to the home page
+    Then I want to see "All bookmarks"
+
+  Scenario: User should see a wizard when she has no bookmarks
+    Given I am signed in
+    And I have no bookmarks
+    And I go to the home page
+    Then I want to see "Add your first bookmark now"
