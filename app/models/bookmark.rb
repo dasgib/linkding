@@ -3,6 +3,7 @@ class Bookmark < ActiveRecord::Base
   belongs_to :user
 
   validates_presence_of :url
+  validates_uniqueness_of :site_id, scope: :user_id
 
   acts_as_taggable
 
