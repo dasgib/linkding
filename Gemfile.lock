@@ -216,6 +216,7 @@ DEPENDENCIES
   haml-rails
   inherited_resources
   jquery-rails
+  nokogiri
   pg
   rails (= 3.2.0.rc2)
   rspec (~> 2.8.0)

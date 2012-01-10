@@ -1,0 +1,7 @@
+%h1= t('.title')
+
+= form_tag(import_path, multipart: true) do
+  = file_field_tag :file
+  = submit_tag
+
+= link_to t('back'), bookmarks_path

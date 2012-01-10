@@ -33,3 +33,5 @@ en:
     index:
       add_first_bookmark: "Add your first bookmark now"
       all_bookmarks: "All bookmarks"
+  import:
+    success: "%{count} bookmarks successfully imported."
