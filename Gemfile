@@ -9,6 +9,7 @@ gem 'haml-rails', group: :development
 gem 'sass-rails',   '~> 3.2.0'
 gem 'devise'
 gem 'simple_form'
+gem 'acts-as-taggable-on'
 
 # Gems used only for assets and not required
 # in production environments by default.
