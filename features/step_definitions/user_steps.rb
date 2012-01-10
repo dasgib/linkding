@@ -20,6 +20,10 @@ Given /^I am a new, authenticated user$/ do
   step %{I press "Sign in"}
 end
 
+Given /^I am signed in$/ do
+  step %{I am a new, authenticated user}
+end
+
 Then /^I should be already signed in$/ do
   step %{I should see "Sign out"}
 end
