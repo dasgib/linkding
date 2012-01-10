@@ -1,5 +1,7 @@
 %h1= t('.title')
 
+= will_paginate @bookmarks
+
 - @bookmarks.each do |bookmark|
   = content_tag_for(:section, bookmark) do
     %h3= link_to bookmark.title, bookmark.url
@@ -11,5 +13,7 @@
     .links
       = link_to t('edit'), edit_bookmark_path(bookmark)
       = link_to t('destroy'), bookmark, :confirm => t('confirm'), :method => :delete
+
+= will_paginate @bookmarks
 
 = link_to t('.new'), new_bookmark_path
