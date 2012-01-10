@@ -13,6 +13,18 @@
 
 ActiveRecord::Schema.define(:version => 20120109184733) do
 
+  create_table "bookmarks", :force => true do |t|
+    t.integer  "site_id",                       :null => false
+    t.integer  "user_id",                       :null => false
+    t.string   "title",                         :null => false
+    t.boolean  "public",     :default => false, :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  add_index "bookmarks", ["site_id"], :name => "index_bookmarks_on_site_id"
+  add_index "bookmarks", ["user_id"], :name => "index_bookmarks_on_user_id"
+
   create_table "sites", :force => true do |t|
     t.string   "url",        :null => false
     t.datetime "created_at", :null => false
@@ -67,5 +79,8 @@ ActiveRecord::Schema.define(:version => 20120109184733) do
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
+
+  add_foreign_key "bookmarks", "sites", :name => "bookmarks_site_id_fk"
+  add_foreign_key "bookmarks", "users", :name => "bookmarks_user_id_fk"
 
 end
