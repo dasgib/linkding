@@ -1,0 +1,13 @@
+%h1= t('.title')
+
+- @bookmarks.each do |bookmark|
+  = link_to bookmark.title, bookmark.url
+
+  = bookmark.public ? t('public') : t('private')
+
+  = link_to t('edit'), edit_bookmark_path(bookmark)
+  = link_to t('destroy'), bookmark, :confirm => t('confirm'), :method => :delete
+
+%br
+
+= link_to t('.new'), new_bookmark_path

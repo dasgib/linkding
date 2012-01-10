@@ -1,0 +1,11 @@
+= simple_form_for(@bookmark) do |f|
+  = f.error_notification
+
+  .inputs
+    = f.input :url
+    = f.input :title
+    = f.input :tag_list
+    = f.input :public
+
+  .actions
+    = f.submit
