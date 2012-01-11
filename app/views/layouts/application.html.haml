@@ -6,14 +6,28 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    - flash.each do |name, msg|
-      = content_tag :div, msg, :id => "flash_#{name}"
+    %header#header
+      %h1#logo= link_to "Linkding", root_path
 
-    - if user_signed_in?
-      = link_to t('layout.sign_out'), destroy_user_session_path
-    - else
-      = link_to t('layout.sign_in'), new_user_session_path
+      %nav#navigation
+        %ul
+          - if user_signed_in?
+            %li= link_to t('layout.add_bookmark'), new_bookmark_path
 
-    - if user_signed_in?
-      = link_to t('layout.add_bookmark'), new_bookmark_path
-    = yield
+      %nav#account-nav
+        - if user_signed_in?
+          .account
+            = current_user.email
+            = avatar(current_user, id: 'avatar')
+          = link_to t('layout.sign_out'), destroy_user_session_path
+        - else
+          = link_to t('layout.sign_in'), new_user_session_path
+
+    #main
+      #content
+        - flash.each do |name, msg|
+          = content_tag :div, msg, :id => "flash_#{name}"
+        = yield
+
+      #sidebar
+        = yield :sidebar
