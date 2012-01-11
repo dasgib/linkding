@@ -34,4 +34,5 @@ en:
       add_first_bookmark: "Add your first bookmark now"
       all_bookmarks: "All bookmarks"
   import:
-    success: "%{count} bookmarks successfully imported."
+    success: "%{success_count} bookmarks successfully imported."
+    skipped: "%{success_count} bookmarks successfully imported, %{failure_count} skipped because of errors."
