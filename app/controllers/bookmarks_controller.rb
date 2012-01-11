@@ -1,5 +1,7 @@
 class BookmarksController < InheritedResources::Base
 
+  has_scope :tagged_with, as: 'tag'
+
   def create
     create! { bookmarks_path }
   end
