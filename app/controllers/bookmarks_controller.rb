@@ -13,6 +13,6 @@ class BookmarksController < InheritedResources::Base
   protected
 
   def collection
-    @bookmarks ||= end_of_association_chain.includes(:site).includes(:tags).paginate(page: params[:page], per_page: 10)
+    @bookmarks ||= current_user.bookmarks.includes(:site, :tags).order("created_at desc").paginate(page: params[:page], per_page: 10)
   end
 end
