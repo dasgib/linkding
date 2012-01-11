@@ -1,12 +1,6 @@
 class BookmarksController < InheritedResources::Base
 
-  def new
-    @bookmark = current_user.bookmarks.build(params[:bookmark])
-    new!
-  end
-
   def create
-    @bookmark = current_user.bookmarks.build(params[:bookmark])
     create! { bookmarks_path }
   end
 
