@@ -1,7 +1,7 @@
 class BookmarksController < InheritedResources::Base
 
   def new
-    @bookmark = current_user.bookmarks.build
+    @bookmark = current_user.bookmarks.build(params[:bookmark])
     new!
   end
 
