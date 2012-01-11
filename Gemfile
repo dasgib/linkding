@@ -12,6 +12,7 @@ gem 'simple_form'
 gem 'acts-as-taggable-on'
 gem 'foreigner'
 gem 'inherited_resources'
+gem 'has_scope'
 gem 'will_paginate', '~> 3.0'
 
 # Gems used only for assets and not required

@@ -231,6 +231,7 @@ DEPENDENCIES
   guard-spork
   haml
   haml-rails
+  has_scope
   inherited_resources
   jquery-rails
   pg
