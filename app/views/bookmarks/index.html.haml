@@ -1,10 +1,7 @@
 %h1= t('.title')
 
-= will_paginate @bookmarks
-
-= render @bookmarks
-
-= will_paginate @bookmarks
+= paginated_section @bookmarks do
+  = render @bookmarks
 
 = link_to t('.new'), new_bookmark_path
 
