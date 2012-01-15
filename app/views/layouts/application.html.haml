@@ -13,6 +13,7 @@
         %ul
           - if user_signed_in?
             %li= link_to t('layout.add_bookmark'), new_bookmark_path
+            %li= link_to t('layout.all_bookmarks'), bookmarks_path
 
       %nav#account-nav
         - if user_signed_in?
