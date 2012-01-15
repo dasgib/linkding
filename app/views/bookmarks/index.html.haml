@@ -2,17 +2,7 @@
 
 = will_paginate @bookmarks
 
-- @bookmarks.each do |bookmark|
-  = content_tag_for(:section, bookmark) do
-    %h3= link_to bookmark.title, bookmark.url
-    = link_to bookmark.url, bookmark.url
-    .tags
-      = bookmark.tags.map(&:name).join(', ')
-    .public
-      = bookmark.public ? t('public') : t('private')
-    .links
-      = link_to t('edit'), edit_bookmark_path(bookmark)
-      = link_to t('destroy'), bookmark, :confirm => t('confirm'), :method => :delete
+= render @bookmarks
 
 = will_paginate @bookmarks
 
