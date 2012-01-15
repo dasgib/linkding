@@ -1,6 +1,7 @@
 class BookmarksController < InheritedResources::Base
 
   has_scope :tagged_with, as: 'tag'
+  has_scope :page, default: 1
 
   def index
     # TODO: refactor tag list into a cell as soon as we have Cells
@@ -15,7 +16,7 @@ class BookmarksController < InheritedResources::Base
   protected
 
   def collection
-    @bookmarks ||= end_of_association_chain.includes(:site, :tags).order("created_at desc").paginate(page: params[:page], per_page: 10)
+    @bookmarks ||= end_of_association_chain.includes(:site, :tags).order("created_at desc")
   end
 
   def begin_of_association_chain
