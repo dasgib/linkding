@@ -8,10 +8,13 @@ class ImportController < ApplicationController
     failure_count = 0
     dom.xpath('//dt/a').each do |a|
       begin
+        next_element = a.parent.next
+        description = (next_element.content if next_element.try(:name) == "dd")
         Bookmark.create!(
             user: current_user,
-            title: a.content,
             url: a['href'],
+            title: a.content,
+            description: description,
             tag_list: a['tags'],
             public: a['private'] == "0",
             created_at: Time.at(a['add_date'].to_i)
