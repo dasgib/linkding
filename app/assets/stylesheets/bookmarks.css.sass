@@ -3,11 +3,31 @@
 // You can use Sass here: http://sass-lang.com/
 
 section.bookmark
-  margin: 1em 0
+  margin: 0.5em 0
+  position: relative
+  padding: 0.5em
+
+  &.private
+    background-color: #eee
 
   h3
     margin-bottom: 0.2em
     font-size: 1.4em
+
+    a
+      +link-colors($font-color)
+
+  a.tag
+    +link-colors($font-color)
+
+  .links
+    position: absolute
+    bottom: 0.5em
+    right: 0.5em
+
+  .description
+    p
+      margin-bottom: 0.5em
 
 form.bookmark
   @extend form.wide

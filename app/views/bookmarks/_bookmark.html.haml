@@ -1,10 +1,11 @@
-= content_tag_for(:section, bookmark) do
+= content_tag_for(:section, bookmark, class: bookmark.public ? 'public' : 'private') do
   %h3= link_to bookmark.title, bookmark.url
-  = link_to bookmark.url, bookmark.url
+  = link_to truncate(bookmark.url, length: 90), bookmark.url
+  - if bookmark.description.present?
+    .description
+      = simple_format bookmark.description
   .tags
-    = bookmark.tags.map(&:name).join(', ')
-  .public
-    = bookmark.public ? t('public') : t('private')
+    = bookmark.tags.map { |tag| link_to(tag.name, bookmarks_path(tag: tag.name), class: 'tag') }.join(", ").html_safe
   .links
     = link_to t('edit'), edit_bookmark_path(bookmark)
     = link_to t('destroy'), bookmark, :confirm => t('confirm'), :method => :delete
