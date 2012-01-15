@@ -15,7 +15,7 @@ class ImportController < ApplicationController
             url: a['href'],
             title: a.content,
             description: description,
-            tag_list: a['tags'],
+            tag_list: filter_tags(a['tags']),
             public: a['private'] == "0",
             created_at: Time.at(a['add_date'].to_i)
         )
@@ -33,5 +33,13 @@ class ImportController < ApplicationController
     end
 
     redirect_to bookmarks_path, notice: notice
+  end
+
+  private
+
+  def filter_tags(input)
+    # Remove delicious share tags since this information should not be public
+    blacklist = /for\:.+/
+    input.split(",").map(&:strip).reject { |tag| tag =~ blacklist }.join(",")
   end
 end
