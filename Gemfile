@@ -12,6 +12,7 @@ gem 'simple_form'
 gem 'acts-as-taggable-on'
 gem 'foreigner'
 gem 'inherited_resources'
+gem 'has_scope'
 gem 'will_paginate', '~> 3.0'
 gem 'nokogiri'
 
@@ -25,6 +26,7 @@ end
 
 group :test do
   gem 'rspec', '~> 2.8.0'
+  gem 'spork', '> 0.9.0.rc'
   gem 'cucumber'
   gem 'cucumber-rails', require: false
   gem 'cucumber-rails-training-wheels'
@@ -36,7 +38,15 @@ end
 
 gem 'rspec-rails', '~> 2.8.1', group: [:development, :test]
 
-# Deployment
 group :development do
+  # Deployment
   gem 'capistrano'
+
+  # Testing
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'guard-cucumber'
+  gem 'guard-spork'
+  # gem 'libnotify' # For guard notifications on linux
+  gem 'ruby_gntp' # For the growl network protocol
 end

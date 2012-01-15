@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
   attr_accessible :username, :email, :password, :password_confirmation, :remember_me
 
   has_many :bookmarks
+
+  def active_tags
+    bookmarks.tag_counts.order('count desc')
+  end
 end
