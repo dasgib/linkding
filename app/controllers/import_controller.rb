@@ -40,6 +40,6 @@ class ImportController < ApplicationController
   def filter_tags(input)
     # Remove delicious share tags since this information should not be public
     blacklist = /for\:.+/
-    input.split(",").map(&:strip).reject { |tag| tag =~ blacklist }.join(",")
+    input.split(",").map(&:strip).reject { |tag| tag =~ blacklist }.join(",") if input.present?
   end
 end
