@@ -12,9 +12,9 @@ class ImportController < ApplicationController
         description = (next_element.content if next_element.try(:name) == "dd")
         Bookmark.create!(
             user: current_user,
-            url: a['href'],
-            title: a.content,
-            description: description,
+            url: a['href'].try(:strip),
+            title: a.content.try(:strip),
+            description: description.try(:strip),
             tag_list: filter_tags(a['tags']),
             public: a['private'] == "0",
             created_at: Time.at(a['add_date'].to_i)
