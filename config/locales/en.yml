@@ -29,6 +29,7 @@ en:
     sign_out: "Sign out"
     sign_in: "Sign in"
     add_bookmark: "Add Bookmark"
+    all_bookmarks: "All Bookmarks"
   home:
     index:
       add_first_bookmark: "Add your first bookmark now"
