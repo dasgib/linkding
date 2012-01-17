@@ -2,4 +2,34 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  simple_form:
+    labels:
+      bookmark:
+        url: URL
+        tag_list: Tags
+  flash:
+    bookmarks:
+      create:
+        notice: "Your bookmark has been created."
+  bookmarks:
+    new:
+      title: "New bookmark"
+    edit:
+      title: "Editing bookmark"
+    index:
+      title: "Listing bookmarks"
+      new: "New Bookmark"
+  back: "Back"
+  public: "public"
+  private: "private"
+  edit: "Edit"
+  destroy: "Destroy"
+  confirm: "Are you sure?"
+  layout:
+    sign_out: "Sign out"
+    sign_in: "Sign in"
+    add_bookmark: "Add Bookmark"
+  home:
+    index:
+      add_first_bookmark: "Add your first bookmark now"
+      all_bookmarks: "All bookmarks"

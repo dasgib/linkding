@@ -1,0 +1,12 @@
+%h1= t('.title')
+
+= paginated_section @bookmarks do
+  = render @bookmarks
+
+= link_to t('.new'), new_bookmark_path
+
+- content_for :sidebar do
+  %h2 Tags
+  %ul
+    - @tags.each do |tag|
+      %li= link_to "#{tag.name} (#{tag.count})", bookmark_path(tag: tag.name)

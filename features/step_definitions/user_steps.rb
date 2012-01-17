@@ -6,18 +6,23 @@ Given /^I am a user named "([^"]*)" with an email "([^"]*)" and password "([^"]*
   user = User.new(username: name, email: email, password: password, password_confirmation: password)
   user.confirm!
   user.save!
+  @user = user
 end
 
 Given /^I am a new, authenticated user$/ do
+  username = 'testing'
   email = 'testing@man.net'
-  login = 'Testing man'
   password = 'secretpass'
 
-  step %{I have one user "#{email}" with password "#{password}"}
-  step %{I go to login}
+  step %{I am a user named "#{username}" with an email "#{email}" and password "#{password}"}
+  step %{I go to the sign in page}
   step %{I fill in "user_email" with "#{email}"}
   step %{I fill in "user_password" with "#{password}"}
   step %{I press "Sign in"}
+end
+
+Given /^I am signed in$/ do
+  step %{I am a new, authenticated user}
 end
 
 Then /^I should be already signed in$/ do

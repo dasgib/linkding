@@ -10,7 +10,10 @@
       = content_tag :div, msg, :id => "flash_#{name}"
 
     - if user_signed_in?
-      = link_to "Sign out", destroy_user_session_path
+      = link_to t('layout.sign_out'), destroy_user_session_path
     - else
-      = link_to "Sign in", new_user_session_path
+      = link_to t('layout.sign_in'), new_user_session_path
+
+    - if user_signed_in?
+      = link_to t('layout.add_bookmark'), new_bookmark_path
     = yield
