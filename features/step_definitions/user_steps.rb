@@ -6,6 +6,7 @@ Given /^I am a user named "([^"]*)" with an email "([^"]*)" and password "([^"]*
   user = User.new(username: name, email: email, password: password, password_confirmation: password)
   user.confirm!
   user.save!
+  @user = user
 end
 
 Given /^I am a new, authenticated user$/ do
