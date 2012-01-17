@@ -6,6 +6,7 @@ class ImportController < ApplicationController
     dom = Nokogiri::HTML(params[:file].read)
     success_count = 0
     failure_count = 0
+    import = Import.create!(user: current_user)
     dom.xpath('//dt/a').each do |a|
       begin
         next_element = a.parent.next
@@ -17,7 +18,8 @@ class ImportController < ApplicationController
             description: description.try(:strip),
             tag_list: filter_tags(a['tags']),
             public: a['private'] == "0",
-            created_at: Time.at(a['add_date'].to_i)
+            created_at: Time.at(a['add_date'].to_i),
+            import: import
         )
         success_count += 1
       rescue Exception => e
