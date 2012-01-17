@@ -33,6 +33,7 @@ group :test do
   gem 'database_cleaner'
   gem 'simplecov', require: false
   gem 'simplecov-rcov', require: false
+  gem 'launchy'
 end
 
 gem 'rspec-rails', '~> 2.8.1', group: [:development, :test]
