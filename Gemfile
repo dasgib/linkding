@@ -14,6 +14,7 @@ gem 'foreigner'
 gem 'inherited_resources'
 gem 'has_scope'
 gem 'will_paginate', '~> 3.0'
+gem 'nokogiri'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -35,6 +36,7 @@ group :test do
   gem 'database_cleaner'
   gem 'simplecov', require: false
   gem 'simplecov-rcov', require: false
+  gem 'launchy'
 end
 
 gem 'rspec-rails', '~> 2.8.1', group: [:development, :test]
