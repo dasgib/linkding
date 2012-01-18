@@ -1,9 +1,17 @@
 class ImportController < ApplicationController
   def show
+    @import_form = ImportForm.new
   end
 
   def create
-    dom = Nokogiri::HTML(params[:file].read)
+    @import_form = ImportForm.new(params[:import_form])
+
+    unless @import_form.valid?
+      render :show
+      return
+    end
+
+    dom = Nokogiri::HTML(@import_form.file.read)
     success_count = 0
     failure_count = 0
     import = Import.create!(user: current_user)
