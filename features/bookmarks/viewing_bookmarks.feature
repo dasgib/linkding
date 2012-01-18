@@ -30,7 +30,6 @@ Feature: Viewing bookmarks
       | tags  | mytag              |
     When I am on the bookmarks page
     Then I should see 2 bookmarks
-    Then show me the page
     When I follow "mytag"
     Then I should see 1 bookmark
     And I should see "Example"
