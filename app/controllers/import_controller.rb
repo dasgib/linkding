@@ -11,9 +11,10 @@ class ImportController < ApplicationController
       begin
         next_element = next_element(a)
         description = (next_element.content if next_element.try(:name) == "dd")
+        url = a['href'].try(:strip)
         Bookmark.create!(
             user: current_user,
-            url: a['href'].try(:strip),
+            url: url,
             title: a.content.try(:strip),
             description: description.try(:strip),
             tag_list: filter_tags(a['tags']),
@@ -24,7 +25,7 @@ class ImportController < ApplicationController
         success_count += 1
       rescue Exception => e
         failure_count += 1
-        logger.info(e)
+        logger.info("Import #{import.id}, url: #{url.inspect}: #{e}")
       end
     end
 
