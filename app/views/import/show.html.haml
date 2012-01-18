@@ -1,9 +1,9 @@
 %h1= t('.title')
 
-= form_tag(import_path, multipart: true) do
+= simple_form_for(@import_form, url: import_path, multipart: true) do |f|
   .inputs
-    = file_field_tag :file
+    = f.input :file, as: :file
   .actions
-    = submit_tag t('.submit')
+    = f.submit t('.submit')
 
 = link_to t('back'), bookmarks_path

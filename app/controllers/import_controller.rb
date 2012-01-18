@@ -1,19 +1,28 @@
 class ImportController < ApplicationController
   def show
+    @import_form = ImportForm.new
   end
 
   def create
-    dom = Nokogiri::HTML(params[:file].read)
+    @import_form = ImportForm.new(params[:import_form])
+
+    unless @import_form.valid?
+      render :show
+      return
+    end
+
+    dom = Nokogiri::HTML(@import_form.file.read)
     success_count = 0
     failure_count = 0
     import = Import.create!(user: current_user)
     dom.xpath('//dt/a').each do |a|
       begin
-        next_element = a.parent.next
+        next_element = next_element(a)
         description = (next_element.content if next_element.try(:name) == "dd")
+        url = a['href'].try(:strip)
         Bookmark.create!(
             user: current_user,
-            url: a['href'].try(:strip),
+            url: url,
             title: a.content.try(:strip),
             description: description.try(:strip),
             tag_list: filter_tags(a['tags']),
@@ -24,7 +33,7 @@ class ImportController < ApplicationController
         success_count += 1
       rescue Exception => e
         failure_count += 1
-        logger.info(e)
+        logger.info("Import #{import.id}, url: #{url.inspect}: #{e}")
       end
     end
 
@@ -43,5 +52,9 @@ class ImportController < ApplicationController
     # Remove delicious share tags since this information should not be public
     blacklist = /for\:.+/
     input.split(",").map(&:strip).reject { |tag| tag =~ blacklist }.join(",") if input.present?
+  end
+
+  def next_element(node)
+    node.next_element || next_element(node.parent) unless node.nil?
   end
 end

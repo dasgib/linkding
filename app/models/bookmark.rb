@@ -3,7 +3,8 @@ class Bookmark < ActiveRecord::Base
   belongs_to :user
   belongs_to :import
 
-  validates_presence_of :url
+  validates :url, presence: true, length: {maximum: 2048}
+  validates :title, presence: true, length: {maximum: 1024}
   validates_uniqueness_of :site_id, scope: :user_id
 
   acts_as_taggable
