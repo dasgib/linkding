@@ -9,7 +9,7 @@ class ImportController < ApplicationController
     import = Import.create!(user: current_user)
     dom.xpath('//dt/a').each do |a|
       begin
-        next_element = a.parent.next
+        next_element = next_element(a)
         description = (next_element.content if next_element.try(:name) == "dd")
         Bookmark.create!(
             user: current_user,
@@ -43,5 +43,9 @@ class ImportController < ApplicationController
     # Remove delicious share tags since this information should not be public
     blacklist = /for\:.+/
     input.split(",").map(&:strip).reject { |tag| tag =~ blacklist }.join(",") if input.present?
+  end
+
+  def next_element(node)
+    node.next_element || next_element(node.parent) unless node.nil?
   end
 end
