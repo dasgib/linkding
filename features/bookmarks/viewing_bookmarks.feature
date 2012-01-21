@@ -6,13 +6,16 @@ Feature: Viewing bookmarks
   Background:
     Given I am signed in
     And there is only one bookmark with this data:
-      | title | Google            |
-      | url   | http://google.com |
-      | tags  | google            |
+      | title       | Google |
+      | url         | http://google.com |
+      | tags        | google, awesome |
+      | description | A search engine |
 
   Scenario: List bookmarks
     When I am on the bookmarks page
     Then I should see "http://google.com"
+    And I should see "awesome"
+    And I should see "A search engine"
 
   Scenario: Paginate bookmarks
     Given I have no bookmarks
