@@ -18,9 +18,10 @@ Feature: Add bookmark
   Scenario: User adds bookmark
     Given I go to the new bookmark page
     When I fill in the following fields:
-      | URL     | http://google.de        |
-      | Title   | Awesome search engine   |
-      | Tags    | search, google, awesome |
+      | URL         | http://google.de |
+      | Title       | Google Search |
+      | Description | A search engine |
+      | Tags        | search, google, awesome |
     And I press "Create Bookmark"
     Then I should see "Your bookmark has been created"
 
