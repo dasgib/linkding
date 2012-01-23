@@ -27,7 +27,7 @@ Given /^I (?:have|create) (\d+) bookmark(?:s)?$/ do |count|
   end
 end
 
-When /^I should see (\d+) pages$/ do |count|
+Then /^I should see (\d+) pages$/ do |count|
   page.should have_selector(:css, ".pagination a", text: count)
   page.should have_no_selector(:css, ".pagination a", text: (count.to_i + 1).to_s)
 end
@@ -36,3 +36,6 @@ Then /^I should see (\d+) bookmark(?:s)?$/ do |count|
   page.should have_css('.bookmark', count: count.to_i)
 end
 
+Then /^I should have (\d+) bookmarks$/ do |count|
+  Bookmark.count.should == count.to_i
+end
