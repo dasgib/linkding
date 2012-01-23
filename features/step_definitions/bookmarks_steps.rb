@@ -12,7 +12,7 @@ end
 Given /^there is a bookmark with this data:$/ do |table|
   # table is a | url   | http://yahoo.com |pending
   table = table.rows_hash
-  Bookmark.create!(user: @user, url: table[:url], title: table[:title], tag_list: table[:tags])
+  Bookmark.create!(user: @user, url: table[:url], title: table[:title], tag_list: table[:tags], description: table[:description])
 end
 
 Given /^there is only one bookmark with this data:$/ do |table|
