@@ -25,3 +25,15 @@ Feature: Viewing bookmarks
     And I should see 3 pages
     When I follow "3"
     Then I should see 10 bookmarks
+
+  Scenario: Filter by tag
+    Given there is a bookmark with this data:
+      | title | Example            |
+      | url   | http://example.com |
+      | tags  | mytag              |
+    When I am on the bookmarks page
+    Then I should see 2 bookmarks
+    When I follow "mytag"
+    Then I should see 1 bookmark
+    And I should see "Example"
+    But I should not see "Google"

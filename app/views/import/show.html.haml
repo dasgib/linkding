@@ -1,0 +1,9 @@
+%h1= t('.title')
+
+= simple_form_for(@import_form, url: import_path, multipart: true) do |f|
+  .inputs
+    = f.input :file, as: :file
+  .actions
+    = f.submit t('.submit')
+
+= link_to t('back'), bookmarks_path

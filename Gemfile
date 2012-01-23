@@ -14,6 +14,7 @@ gem 'foreigner'
 gem 'inherited_resources'
 gem 'has_scope'
 gem 'will_paginate', '~> 3.0'
+gem 'nokogiri'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -21,6 +22,8 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.0'
   gem 'therubyracer'
   gem 'uglifier', '>= 1.0.3'
+  gem 'compass', '>= 0.12.alpha.4'
+  gem 'compass-lucid-grid', require: 'lucid'
 end
 
 group :test do
