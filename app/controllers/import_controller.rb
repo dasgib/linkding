@@ -23,7 +23,7 @@ class ImportController < ApplicationController
         Bookmark.create!(
             user: current_user,
             url: url,
-            title: a.content.try(:strip),
+            title: a.content.try(:strip).truncate(1024),
             description: description.try(:strip),
             tag_list: filter_tags(a['tags']),
             public: a['private'] == "0",
