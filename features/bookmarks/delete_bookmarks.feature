@@ -1,4 +1,4 @@
-Feature:
+Feature: Delete bookmarks
   In order to remove a bookmark
   As a user
   I want to click a link do delete the bookmark
