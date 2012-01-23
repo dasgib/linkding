@@ -1,0 +1,57 @@
+@mixin regrid($grid-widthx, $grid-gutterx: 5px, $textarea-height: 150px)
+  $grid-columns: 12
+  $grid-gutter: $grid-gutterx
+  $grid-width: $grid-widthx
+  @include grid-reinit
+
+  #main, #header
+    @include container
+    padding: 0
+  #logo
+    +columns(3)
+  #navigation
+    +columns(4)
+    ul
+      +no-bullets
+      padding: 0
+      margin: 0
+      line-height: 1.1em
+  #account-nav
+    +columns(5)
+  #content
+    +columns(9)
+  #sidebar
+    +columns(3)
+    ul
+      +no-bullets
+      padding: 0
+      margin: 0
+
+  #logo, #navigation, #account-nav, #content, #sidebar
+    margin-left: $grid-gutter
+    margin-right: $grid-gutter
+
+  $input-width: $grid-width - 2 * $grid-gutter - 12px - 20px
+  form.wide
+    +blueprint-form-sizes($input-width: $input-width, $textarea-width: $input-width, $textarea-height: $textarea-height)
+
+@media screen and (max-width: 990px) and (min-width: 651px)
+  +regrid($grid-widthx: 640px)
+
+@media screen and (min-width: 491px) and (max-width: 650px)
+  +regrid($grid-widthx: 480px, $textarea-height: 90px)
+  h1
+    font-size: 2em
+    margin-bottom: 0.2em
+    margin-top: 0.2em
+
+@media screen and (max-width: 490px)
+  +regrid(360px, 5px, 90px)
+
+  #content
+    +columns(12)
+  #sidebar
+    +columns(12)
+  h1
+    font-size: 1.5em
+    margin-bottom: 0.2em
