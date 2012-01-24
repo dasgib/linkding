@@ -27,15 +27,18 @@ form
 
   input[type=text],
   input[type=email],
-  input[type=password]
+  input[type=password],
+  textarea
     background: #fff
     padding: 0.5em
     border: 0
-    font-size: 100%
+    font-family: $blueprint-font-family
+    font-size: $blueprint-font-size
 
     @include border-radius(5px)
     border: 1px solid $silver
     border-color: lighten($silver, 10) $silver $silver lighten($silver, 10)
+    // +box-shadow(rgba(0, 0, 0, 0.1) 1px 1px 1px inset)
 
     &:focus
       border-color: lighten($cta-color, 45%)
@@ -43,7 +46,10 @@ form
       outline: none
 
       +box-shadow(rgba($cta-color, 0.4) 0 0 8px)
-      +box-shadow(rgba(0, 0, 0, 0.1) 0 1px 3px true)
+
+  textarea
+    width: 95%
+    height: 5em
 
   input[type=url], input[type=email]
     @extend input[type=text]
