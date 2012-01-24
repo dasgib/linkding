@@ -1,0 +1,26 @@
+html, body
+  height: 100%
+
+body
+  height: auto
+  background: $color-background
+  color: $color-text
+
+a
+  text-decoration: none
+
+#{headers(all)}
+  +headline-font
+
+h1
+  display: none
+  font-size: 20px
+
+h2
+  font-size: 18px
+
+#flash_notice
+  +success
+
+#flash_error
+  +error

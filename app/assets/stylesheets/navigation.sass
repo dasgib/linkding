@@ -1,0 +1,24 @@
+#navigation
+  ul
+    padding: 0
+    list-style: none
+    text-indent: 0
+    width: 100%
+
+  li
+    float: left
+    margin-left: 15px
+
+    &.add-bookmark
+      float: right
+      a
+        +button-add
+        &:before
+          content: '✚ '
+
+    &.new-stack
+      float: right
+      a
+        +button-add
+        &:before
+          content: '▤ '

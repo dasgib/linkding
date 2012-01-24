@@ -1,11 +1,25 @@
 = content_tag_for(:section, bookmark, class: bookmark.public ? 'public' : 'private') do
-  %h3= link_to bookmark.title, bookmark.url
+  .social-links
+    - if user_signed_in?
+      / = link_to t('save_bookmark_icon'), bookmark_path(bookmark), class: 'save-bookmark', alt: t('save_bookmark'), title: t('save_bookmark')
+      / = link_to t('add_to_stack_icon'), bookmark_path(bookmark), class: 'add-to-stack', alt: t('add_to_stack'), title: t('add_to_stack')
+    / = link_to t('share_icon'), bookmark_path(bookmark), class: 'share', alt: t('share'), title: t('share')
+
+  - if bookmark.title.present?
+    %h3
+      = link_to bookmark.title, bookmark.url
+
   = link_to truncate(bookmark.url, length: 90), bookmark.url
+
+  - if user_signed_in?
+    .user-links
+      = link_to t('edit'), edit_bookmark_path(bookmark), class: 'edit'
+      = link_to t('destroy'), bookmark, confirm: t('confirm'), method: :delete, class: 'delete'
+
   - if bookmark.description.present?
     .description
       = simple_format bookmark.description
-  .tags
-    = bookmark.tags.map { |tag| link_to(tag.name, bookmarks_path(tag: tag.name), class: 'tag') }.join(", ").html_safe
-  .links
-    = link_to t('edit'), edit_bookmark_path(bookmark)
-    = link_to t('destroy'), bookmark, :confirm => t('confirm'), :method => :delete
+
+  - if bookmark.tags.present?
+    %ul.tags
+      = bookmark.tags.map { |tag| content_tag(:li, link_to(tag.name, bookmarks_path(tag: tag.name))) }.join("\n").html_safe

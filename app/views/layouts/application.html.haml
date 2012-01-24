@@ -6,30 +6,37 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    %header#header
-      %h1#logo= link_to "Linkding", root_path
+    %header
+      #header
+        %h1#logo= link_to "Linkding", root_path
 
-      %nav#navigation
-        %ul
+        #quicksearch
+          %form
+            %input{ type: "search", placeholder: 'Search keyword/tag' }
+
+        %nav#navigation
+          %ul
+            - if user_signed_in?
+              %li.add-bookmark= link_to t('layout.add_bookmark'), new_bookmark_path
+
+        %nav#account-nav
           - if user_signed_in?
-            %li= link_to t('layout.add_bookmark'), new_bookmark_path
-            %li= link_to t('layout.all_bookmarks'), bookmarks_path
-            %li= link_to t('layout.import'), import_path
-
-      %nav#account-nav
-        - if user_signed_in?
-          .account
-            = current_user.email
-            = avatar(current_user, id: 'avatar')
-          = link_to t('layout.sign_out'), destroy_user_session_path
-        - else
-          = link_to t('layout.sign_in'), new_user_session_path
+            .inner
+              .account
+                %span.username= current_user.email
+                = avatar(current_user, id: 'avatar', size: 25)
+              %ul
+                %li= link_to t('layout.all_bookmarks'), bookmarks_path, class: 'my-bookmarks'
+                %li= link_to t('layout.import'), import_path, class: 'import'
+                %li= link_to t('layout.sign_out'), destroy_user_session_path, class: 'sign-out'
+            - else
+              = link_to t('layout.sign_in'), new_user_session_path, class: 'sign-in'
 
     #main
-      #content
+      %section#content
         - flash.each do |name, msg|
           = content_tag :div, msg, :id => "flash_#{name}"
         = yield
 
-      #sidebar
+      %section#sidebar
         = yield :sidebar

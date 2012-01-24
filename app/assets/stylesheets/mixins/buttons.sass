@@ -1,0 +1,64 @@
+// default button style
+@mixin button($color: $cta-color, $textcolor: $cta-text-color, $shadowcolor: darken($color, 10))
+  display: inline-block
+  padding: 0.3em 0.7em
+
+  +border-radius(5px)
+  +box-shadow(rgba(255, 255, 255, 0.4) 0 1px 0 0 inset)
+
+  +ui-font
+  text-decoration: none
+  font-weight: bold
+
+  cursor: hand
+  cursor: pointer
+
+  border: 1px solid darken($color, 5)
+
+  background: $color
+  +background-image(linear-gradient(center top, lighten($color, 10), $color))
+  color: $textcolor
+  +text-shadow($shadowcolor 1px 1px 1px)
+
+  &:hover,
+  &:focus
+    background: $color
+
+  &:active
+    +background-image(linear-gradient($color, lighten($color, 5)))
+
+@mixin button-small($color: $cta-color, $textcolor: $cta-text-color)
+  +button($color, $textcolor)
+  +small-button
+
+@mixin button-tiny($color: $cta-color, $textcolor: $cta-text-color)
+  +button($color, $textcolor)
+  +tiny-button
+
+@mixin small-button
+  padding: 0.1em 0.6em
+  font-size: 90%
+
+@mixin tiny-button
+  padding: 0 0.4em
+  font-size: 80%
+
+// named-buttons
+
+@mixin button-quiet
+  +button(lighten($silver, 10%), #666, #fff)
+
+// "crud"-buttons
+
+@mixin button-add
+  +button($cta-color, #fff)
+
+@mixin button-delete
+  +button-quiet
+  &:hover
+    +button-tiny(#EA3C00, #fff)
+
+@mixin button-edit
+  +button-quiet
+  &:hover
+    +button-tiny($gray, #fff)

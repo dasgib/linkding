@@ -1,0 +1,30 @@
+// add support for webfont weight & style
+@mixin font-face($name, $font-files, $eot: false, $weight: false, $style: false)
+  $iefont: unquote("#{$eot}?iefix")
+  @font-face
+    font-family: quote($name)
+    @if $eot
+      src: font-url($eot)
+      $font-files: font-url($iefont) unquote("format('eot')"), $font-files
+
+    @if $weight
+      font-weight: $weight
+    @if $style
+      font-style: $style
+    src: $font-files
+
++font-face("ProximaNovaWeb", font-files("fonts/proximanova-regular-webfont.woff", woff, "fonts/proximanova-regular-webfont.ttf", truetype))
++font-face("ProximaNovaWeb", font-files("fonts/proximanova-bold-webfont.woff", woff, "proximanova-bold-webfont.ttf", truetype), false, bold)
+
+$blueprint-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+$blueprint-fixed-font-family: Monaco, "andale mono", "lucida console", monospace
+
+$blueprint-font-size: 14px
+$blueprint-font-size-small: 12px
+$blueprint-font-size-large: 16px
+
+$blueprint-font-family-ui: "ProximaNovaWeb", "Helvetica Neue", Helvetica, Arial, sans-serif
+$blueprint-font-size-ui: 16px
+
+$blueprint-font-family-headline: "ProximaNovaWeb", "Helvetica Neue", Helvetica, Arial, sans-serif
+$blueprint-font-size-headline: 15px

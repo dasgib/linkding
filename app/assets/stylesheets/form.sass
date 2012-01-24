@@ -1,0 +1,73 @@
+form
+  display: inline-block
+
+  .actions
+    text-align: right
+
+  label
+    display: block
+    font-weight: bold
+    margin-bottom: 0.25em
+
+    abbr
+      border-bottom: 0
+      color: $red
+
+  .input.boolean label
+    display: inline
+
+  div.input
+    margin-bottom: 0.5em
+
+    .hint
+      display: block
+      color: $quiet-color
+      margin-top: 0.5em
+      font-size: $blueprint-font-size-small
+
+  input[type=text],
+  input[type=email],
+  input[type=password]
+    background: #fff
+    padding: 0.5em
+    border: 0
+    font-size: 100%
+
+    &:focus
+      background-image: none
+
+
+    &.datetimepicker,
+    &.datepicker
+      width: 7.5em
+      text-align: center
+
+    &.timepicker
+      width: 3em
+      text-align: center
+
+    @include border-radius(5px)
+    border: 1px solid $silver
+    border-color: lighten($silver, 10) $silver $silver lighten($silver, 10)
+
+    &:focus
+      border-color: lighten($cta-color, 45%)
+      background-color: #fff
+      outline: none
+
+      +box-shadow(rgba($cta-color, 0.4) 0 0 8px)
+      +box-shadow(rgba(0, 0, 0, 0.1) 0 1px 3px true)
+
+  input[type=url], input[type=email]
+    @extend input[type=text]
+
+  input[type=submit]
+    +button
+
+a#backlink
+  margin-left: 15px
+  +button-quiet
+  +small-button
+
+  &:before
+    content: '◄ '
