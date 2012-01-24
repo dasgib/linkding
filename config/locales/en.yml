@@ -19,6 +19,8 @@ en:
     index:
       title: "Listing bookmarks"
       new: "New Bookmark"
+    form:
+      tags_hint: "Comma separated, tags can contain spaces"
   back: "Back"
   public: "public"
   private: "private"
