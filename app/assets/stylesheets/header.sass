@@ -1,0 +1,42 @@
+header
+  position: fixed
+  z-index: 5000
+
+  padding: 10px 0 7px 0
+  border-bottom: 1px solid darken($color-header, 10%)
+
+  background: #fff
+  +background-image(linear-gradient(center top, #fff, $color-header))
+
+  #quicksearch
+    margin-top: 1px
+
+    input
+      border: 0
+      background: #fff
+      border: 1px solid darken($color-background, 12%)
+      font-size: $blueprint-font-size
+      padding: 8px 14px
+      +border-radius(5px)
+      width: 10em
+      +box-shadow(lighten($silver, 18%) 1px 1px 2px inset)
+
+      &::-webkit-input-placeholder
+        color: $silver
+
+      &:-moz-placeholder
+        color: $silver
+
+#logo
+  margin-bottom: 0
+
+  a
+    display: block
+    width: 145px
+    height: 40px
+    background: image-url("linkding-logo-blue.png") no-repeat
+    background-size: 145px 40px
+    text-indent: -5000px
+
+    &:hover
+      background-image: image-url("linkding-logo-colored.png")

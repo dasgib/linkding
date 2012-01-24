@@ -1,0 +1,46 @@
+#account-nav
+  .inner
+    position: relative
+    +button-quiet
+    padding-left: 40px
+    padding-right: 25px
+
+    &:hover
+      li
+        display: block
+
+  #avatar
+    +border-radius(3px)
+
+  ul
+    text-indent: 0
+    list-style: none
+    padding: 0
+    margin: 0
+
+    &:before
+      content: "▾"
+      position: absolute
+      right: 8px
+
+  li
+    display: none
+
+    &:first-child
+      display: block
+      position: relative
+    a
+      display: block
+      color: #333
+
+  .account
+    // float: left
+    // margin-right: 5px
+    position: absolute
+    margin-left: -35px
+
+  .username
+    display: none
+
+  .sign-in
+    +button
