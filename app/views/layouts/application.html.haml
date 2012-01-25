@@ -14,6 +14,7 @@
           - if user_signed_in?
             %li= link_to t('layout.add_bookmark'), new_bookmark_path
             %li= link_to t('layout.all_bookmarks'), bookmarks_path
+            %li= link_to t('layout.recent_bookmarks'), recent_bookmarks_path
             %li= link_to t('layout.import'), import_path
 
       %nav#account-nav
