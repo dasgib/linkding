@@ -7,7 +7,7 @@ form
   label
     display: block
     font-weight: bold
-    margin-bottom: 0.25em
+    margin-bottom: 0.1em
 
     abbr
       border-bottom: 0
@@ -17,7 +17,7 @@ form
     display: inline
 
   div.input
-    margin-bottom: 0.5em
+    margin-bottom: 0.75em
 
     .hint
       display: block
@@ -29,9 +29,10 @@ form
   input[type=email],
   input[type=password],
   textarea
-    background: #fff
+    width: 36em
     padding: 0.5em
     border: 0
+    background: #fff
     font-family: $blueprint-font-family
     font-size: $blueprint-font-size
 
@@ -47,8 +48,12 @@ form
 
       +box-shadow(rgba($cta-color, 0.4) 0 0 8px)
 
+  input[type=checkbox],
+  input[type=radio]
+    margin: 0
+    margin-right: 5px
+
   textarea
-    width: 95%
     height: 5em
 
   input[type=url], input[type=email]
