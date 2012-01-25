@@ -3,18 +3,14 @@ Given /^no user exists with an email of "(.*)"$/ do |email|
 end
 
 Given /^I am a user named "([^"]*)" with an email "([^"]*)" and password "([^"]*)"$/ do |name, email, password|
-  user = User.new(username: name, email: email, password: password, password_confirmation: password)
-  user.confirm!
-  user.save!
-  @user = user
+  @user = Factory.create(:user, username: name, email: email, password: password)
 end
 
 Given /^I am a new, authenticated user$/ do
-  username = 'testing'
   email = 'testing@man.net'
   password = 'secretpass'
+  @user = Factory.create(:user, email: email, password: password)
 
-  step %{I am a user named "#{username}" with an email "#{email}" and password "#{password}"}
   step %{I go to the sign in page}
   step %{I fill in "user_email" with "#{email}"}
   step %{I fill in "user_password" with "#{password}"}
