@@ -4,6 +4,11 @@ class BookmarksController < InheritedResources::Base
   has_scope :tagged_with, as: 'tag'
   has_scope :page, default: 1, only: [:index, :recent]
 
+  def create
+    @bookmark = current_user.bookmarks.build(params[:bookmark])
+    create!
+  end
+
   def index
     # TODO: refactor tag list into a cell as soon as we have Cells
     @tags = current_user.active_tags.limit(50)
