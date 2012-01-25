@@ -3,9 +3,9 @@ require 'spec_helper'
 describe HomeController do
 
   describe "GET 'index'" do
-    it "returns http success" do
+    it "redirects to sign in page" do
       get 'index'
-      response.should be_success
+      response.should redirect_to(new_user_session_path)
     end
   end
 
