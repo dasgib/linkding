@@ -1,5 +1,5 @@
 form
-  display: inline-block
+  max-width: 36em
 
   .actions
     text-align: right
@@ -25,12 +25,15 @@ form
       margin-top: 0.5em
       font-size: $blueprint-font-size-small
 
+  div.actions
+    margin-right: 18px
+
   input[type=text],
   input[type=email],
   input[type=password],
   textarea
-    width: 36em
-    padding: 0.5em
+    width: 94%
+    padding: 5px
     border: 0
     background: #fff
     font-family: $blueprint-font-family

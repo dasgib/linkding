@@ -5,28 +5,32 @@
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
+    %meta{ name: "apple-mobile-web-app-status-bar-style", content: 'black' }
+    %meta{ name: "format-detection", content: 'telephone=no' }
+    %meta{ name: "viewport", content: 'initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0' }
   %body
     %header
       #header
         %h1#logo= link_to "Linkding", root_path
 
-        #quicksearch
-          %form
-            %input{ type: "search", placeholder: 'Search keyword/tag' }
+        / #quicksearch
+        /   %form
+        /     %input{ type: "search", placeholder: 'Search keyword/tag' }
 
         %nav#navigation
           %ul
             - if user_signed_in?
-              %li.add-bookmark= link_to t('layout.add_bookmark'), new_bookmark_path
+              %li.add-bookmark= link_to t('layout.add_bookmark').html_safe, new_bookmark_path
+              // %li.new-stack= link_to t('layout.add_stack'), new_bookmark_path
 
         %nav#account-nav
           - if user_signed_in?
             .inner
               .account
                 %span.username= current_user.email
-                = avatar(current_user, id: 'avatar', size: 25)
+                = avatar(current_user, id: 'avatar', size: 22)
               %ul
-                %li= link_to t('layout.all_bookmarks'), bookmarks_path, class: 'my-bookmarks'
+                %li= link_to t('layout.my_bookmarks').html_safe, bookmarks_path, class: 'my-bookmarks'
                 %li= link_to t('layout.import'), import_path, class: 'import'
                 %li= link_to t('layout.sign_out'), destroy_user_session_path, class: 'sign-out'
             - else

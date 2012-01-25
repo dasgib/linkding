@@ -1,0 +1,99 @@
+@mixin regrid($grid-widthx, $grid-gutterx: 10px, $textarea-height: 150px)
+  $grid-columns: 12
+  $grid-gutter: $grid-gutterx
+  $grid-width: $grid-widthx
+  @include grid-reinit
+
+  #main
+    padding-top: 5px
+
+  #logo
+    +columns(3)
+
+  #navigation
+    +columns(5)
+
+  #account-nav
+    +columns(4)
+
+  #content
+    +columns(9)
+
+  #sidebar
+    +columns(3)
+
+  #logo, #navigation, #account-nav, #content, #sidebar
+    margin-left: $grid-gutter
+    margin-right: $grid-gutter
+
+  // $input-width: $grid-width - 2 * $grid-gutter - 12px - 20px
+  // form.wide
+  //   +blueprint-form-sizes($input-width: $input-width, $textarea-width: $input-width, $textarea-height: $textarea-height)
+
+@media screen and (max-width: 768px)
+  +regrid($grid-widthx: 730px)
+
+  #navigation
+    +columns(6)
+
+  #account-nav
+    +columns(3)
+
+// @media screen and (max-width: 768px) and (min-width: 491px)
+//   +regrid($grid-widthx: 480px, $textarea-height: 90px)
+
+@media screen and (max-width: 490px)
+  +regrid(480px, 5px, 90px)
+
+  #logo
+    display: none
+
+  #content
+    +columns(12)
+
+  #sidebar
+    +columns(12)
+
+  #account-nav,
+  #navigation
+    +columns(6)
+    // .inner
+    //   float: right
+    //   margin-right: 15px
+
+  #navigation
+    ul
+      margin: 0
+    li.add-bookmark
+      float: none
+      margin-left: 0
+
+@media screen and (max-width: 320px)
+  +regrid(300px, 5px, 90px)
+
+  #logo
+    display: none
+
+  #content
+    +columns(12)
+
+  #sidebar
+    +columns(12)
+
+  #account-nav,
+  #navigation
+    +columns(6)
+    a
+      .pre
+        display: none
+
+  #navigation
+    ul
+      margin: 0
+    li.add-bookmark
+      float: none
+      margin-left: 0
+
+  section.bookmark
+    .description
+      padding-right: 0

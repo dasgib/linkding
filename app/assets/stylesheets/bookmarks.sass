@@ -17,6 +17,9 @@ section.bookmark
     > a:before
       content: '(private) '
 
+  .tags
+    // width: 70%
+
   .favicon
     float: left
     margin-top: 1px
@@ -48,8 +51,16 @@ section.bookmark
   .social-links
     float: right
     margin-left: 25px
+    width: 30px
 
     a
+      display: block
+      float: none
+      width: 10px
+      padding: 3px
+      text-align: center
+      margin-bottom: 5px
+
       &.add-to-stack,
       &.save-bookmark,
       &.share
@@ -59,10 +70,16 @@ section.bookmark
           +button-small($cta-color, #fff)
 
   .user-links
-    float: right
+    position: absolute
+    right: 3px
+    top: 0
     visibility: hidden
+    width: 80px
+    text-align: right
 
     a
+      margin-bottom: 5px
+
       &.delete
         +button-delete
         +small-button
@@ -96,6 +113,7 @@ ul.tags
     margin-right: 10px
     position: relative
     font-size: $blueprint-font-size-small
+    margin-bottom: 5px
 
     a
       display: inline-block

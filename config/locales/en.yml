@@ -30,9 +30,23 @@ en:
   layout:
     sign_out: "Sign out"
     sign_in: "Sign in"
-    add_bookmark: "Add Bookmark"
-    all_bookmarks: "All Bookmarks"
+    add_bookmark: "<span class=pre>Add</span> Bookmark"
+    my_bookmarks: "<span class=pre>My</span> Bookmarks"
+    import: "Import"
+    create_stack: "New Stack"
   home:
     index:
       add_first_bookmark: "Add your first bookmark now"
       all_bookmarks: "All bookmarks"
+  import:
+    show:
+      title: Import Bookmarks
+      submit: Upload
+    success: "%{success_count} bookmarks successfully imported."
+    skipped: "%{success_count} bookmarks successfully imported, %{failure_count} skipped because of errors."
+  save_bookmark: "Save bookmark"
+  add_to_stack: "Add to stack"
+  share: "Share this link"
+  save_bookmark_icon: "✚"
+  add_to_stack_icon: "▤"
+  share_icon: "➜"
