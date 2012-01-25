@@ -1,6 +1,6 @@
 %h1= t('.title')
 
-= paginated_section @bookmarks do
+= paginated_section(@bookmarks, inner_window: 1) do
   = render @bookmarks
 
 - content_for :sidebar do
