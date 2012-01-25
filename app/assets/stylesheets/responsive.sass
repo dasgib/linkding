@@ -1,8 +1,12 @@
-@mixin regrid($grid-widthx, $grid-gutterx: 10px, $textarea-height: 150px)
+@mixin regrid($grid-widthx, $grid-gutterx: 10px, $textarea-height: 5em)
   $grid-columns: 12
   $grid-gutter: $grid-gutterx
   $grid-width: $grid-widthx
   @include grid-reinit
+
+  form
+    textarea
+      height: $textarea-height
 
   #main
     padding-top: 5px
@@ -11,39 +15,38 @@
     +columns(3)
 
   #navigation
-    +columns(5)
+    +columns(3 + 3)
 
   #account-nav
-    +columns(4)
-
-  #content
-    +columns(9)
+    +columns(3)
 
   #sidebar
     +columns(3)
+
+  #content
+    +columns(9)
 
   #logo, #navigation, #account-nav, #content, #sidebar
     margin-left: $grid-gutter
     margin-right: $grid-gutter
 
-  // $input-width: $grid-width - 2 * $grid-gutter - 12px - 20px
-  // form.wide
-  //   +blueprint-form-sizes($input-width: $input-width, $textarea-width: $input-width, $textarea-height: $textarea-height)
+@media screen and (max-width: 980px) and (min-width: 768px)
+  +regrid($grid-widthx: 700px)
 
-@media screen and (max-width: 768px)
-  +regrid($grid-widthx: 730px)
+  #logo
+    +columns(3)
 
   #navigation
     +columns(6)
 
   #account-nav
     +columns(3)
+    a
+      .pre
+        display: none
 
-// @media screen and (max-width: 768px) and (min-width: 491px)
-//   +regrid($grid-widthx: 480px, $textarea-height: 90px)
-
-@media screen and (max-width: 490px)
-  +regrid(480px, 5px, 90px)
+@media screen and (min-width: 480px) and (max-width: 767px)
+  +regrid($grid-widthx: 460px, $textarea-height: 3em)
 
   #logo
     display: none
@@ -57,9 +60,10 @@
   #account-nav,
   #navigation
     +columns(6)
-    // .inner
-    //   float: right
-    //   margin-right: 15px
+
+  #account-nav
+    .inner
+      float: right
 
   #navigation
     ul
@@ -68,8 +72,8 @@
       float: none
       margin-left: 0
 
-@media screen and (max-width: 320px)
-  +regrid(300px, 5px, 90px)
+@media screen and (max-width: 479px)
+  +regrid(290px, 5px, 3em)
 
   #logo
     display: none
