@@ -39,11 +39,7 @@ Feature: Add bookmark
     When I press "Create Bookmark"
     Then I should see "URL can't be blank"
 
-  Scenario: I want to access all my bookmarks
-    Given I have bookmarks
-    When I go to the home page
-    Then I should see "All bookmarks"
-
+  @wip
   Scenario: User should see a wizard when she has no bookmarks
     Given I have no bookmarks
     When I go to the home page

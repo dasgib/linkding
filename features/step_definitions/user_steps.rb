@@ -53,7 +53,7 @@ When /^I sign in as "(.*)\/(.*)"$/ do |email, password|
 end
 
 Then /^I should be signed in$/ do
-  step %{I should see "Signed in successfully."}
+  step %{I should see "Sign out"}
 end
 
 Then /^I sign out$/ do
