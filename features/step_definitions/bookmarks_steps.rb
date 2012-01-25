@@ -10,20 +10,17 @@ When /^I have bookmarks$/ do
 end
 
 Given /^there is a bookmark with this data:$/ do |table|
-  # table is a | url   | http://yahoo.com |pending
-  table = table.rows_hash
-  Bookmark.create!(user: @user, url: table[:url], title: table[:title], tag_list: table[:tags], description: table[:description])
+  Factory.create(:bookmark, table.rows_hash.merge(user: @user))
 end
 
 Given /^there is only one bookmark with this data:$/ do |table|
-  # table is a | url   | http://google.com |pending
   Bookmark.delete_all
   step %{there is a bookmark with this data:}, table
 end
 
 Given /^I (?:have|create) (\d+) bookmark(?:s)?$/ do |count|
   count.to_i.times do |i|
-    Bookmark.create!(user: @user, url: "http://example.com/#{i}", title: "Bookmark#{i}")
+    Factory.create(:bookmark, user: @user)
   end
 end
 

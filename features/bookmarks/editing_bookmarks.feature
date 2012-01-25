@@ -6,9 +6,9 @@ Feature: Editing bookmarks
   Background:
     Given I am signed in
     And there is only one bookmark with this data:
-      | title       | Google |
-      | url         | http://google.com |
-      | tags        | google |
+      | title       | Google                   |
+      | url         | http://google.com        |
+      | tag_list    | google                   |
       | description | Who doesn't know Google? |
     And I am on the bookmarks page
     When I follow "Edit"

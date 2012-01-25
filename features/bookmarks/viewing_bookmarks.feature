@@ -6,10 +6,10 @@ Feature: Viewing bookmarks
   Background:
     Given I am signed in
     And there is only one bookmark with this data:
-      | title       | Google |
+      | title       | Google            |
       | url         | http://google.com |
-      | tags        | google, awesome |
-      | description | A search engine |
+      | tag_list    | google, awesome   |
+      | description | A search engine   |
 
   Scenario: List bookmarks
     When I am on the bookmarks page
@@ -28,9 +28,9 @@ Feature: Viewing bookmarks
 
   Scenario: Filter by tag
     Given there is a bookmark with this data:
-      | title | Example            |
-      | url   | http://example.com |
-      | tags  | mytag              |
+      | title    | Example            |
+      | url      | http://example.com |
+      | tag_list | mytag              |
     When I am on the bookmarks page
     Then I should see 2 bookmarks
     When I follow "mytag"

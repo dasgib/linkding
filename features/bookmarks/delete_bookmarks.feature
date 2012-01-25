@@ -6,9 +6,9 @@ Feature: Delete bookmarks
   Background:
     Given I am signed in
     And there is only one bookmark with this data:
-      | title | Google |
-      | url   | http://google.com |
-      | tags  | google |
+      | title    | Google            |
+      | url      | http://google.com |
+      | tag_list | google            |
     And I am on the bookmarks page
 
   Scenario: Deleting a bookmark
