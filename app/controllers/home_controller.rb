@@ -1,6 +1,5 @@
 class HomeController < ApplicationController
-  skip_before_filter :authenticate_user!
-
   def index
+    redirect_to bookmarks_path
   end
 end
