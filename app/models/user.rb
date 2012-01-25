@@ -12,6 +12,6 @@ class User < ActiveRecord::Base
   has_many :imports
 
   def active_tags
-    bookmarks.tag_counts.order('count desc')
+    bookmarks.active_tags
   end
 end

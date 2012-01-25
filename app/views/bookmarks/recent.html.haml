@@ -3,7 +3,5 @@
 = paginated_section @bookmarks do
   = render @bookmarks
 
-= link_to t('.new'), new_bookmark_path
-
 - content_for :sidebar do
   = render 'tag_list'

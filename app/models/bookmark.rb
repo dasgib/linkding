@@ -9,6 +9,12 @@ class Bookmark < ActiveRecord::Base
 
   acts_as_taggable
 
+  scope :public, where(public: true)
+
+  def self.active_tags
+    tag_counts.order('count desc')
+  end
+
   def url=(url)
     self.site = Site.find_or_create_by_url(url)
   end

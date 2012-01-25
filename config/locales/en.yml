@@ -17,8 +17,10 @@ en:
     edit:
       title: "Editing bookmark"
     index:
-      title: "Listing bookmarks"
+      title: "My bookmarks"
       new: "New Bookmark"
+    recent:
+      title: "Recent bookmarks"
   back: "Back"
   public: "public"
   private: "private"
@@ -31,6 +33,7 @@ en:
     add_bookmark: "Add Bookmark"
     all_bookmarks: "All Bookmarks"
     import: "Import"
+    recent_bookmarks: "Recent Bookmarks"
   home:
     index:
       add_first_bookmark: "Add your first bookmark now"
