@@ -6,6 +6,8 @@
       = simple_format bookmark.description
   .tags
     = bookmark.tags.map { |tag| link_to(tag.name, bookmarks_path(tag: tag.name), class: 'tag') }.join(", ").html_safe
-  .links
-    = link_to t('edit'), edit_bookmark_path(bookmark)
-    = link_to t('destroy'), bookmark, :confirm => t('confirm'), :method => :delete
+
+  - if user_signed_in? && bookmark.user == current_user
+    .links
+      = link_to t('edit'), edit_bookmark_path(bookmark)
+      = link_to t('destroy'), bookmark, :confirm => t('confirm'), :method => :delete
