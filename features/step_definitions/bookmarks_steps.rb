@@ -2,6 +2,14 @@ Given /^I have no bookmarks$/ do
   Bookmark.delete_all
 end
 
+When /^I have a public bookmark with title "([^"]*)"$/ do |title|
+  Factory.create(:bookmark, title: title, user: @user, public: true)
+end
+
+When /^there is a (private|public) bookmark of another user with title "([^"]*)"$/ do |visibility, title|
+  Factory.create(:bookmark, title: title, user: Factory.create(:user), public: (visibility == 'public'))
+end
+
 When /^I have bookmarks$/ do
   step %{I go to the new bookmark page}
   step %{I fill in "URL" with "http://google.com"}
