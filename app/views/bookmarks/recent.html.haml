@@ -1,0 +1,7 @@
+%h1= t('.title')
+
+= paginated_section @bookmarks do
+  = render @bookmarks
+
+- content_for :sidebar do
+  = render 'tag_list'

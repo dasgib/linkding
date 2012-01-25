@@ -8,13 +8,11 @@ class BookmarksController < InheritedResources::Base
     # TODO: refactor tag list into a cell as soon as we have Cells
     @tags = current_user.active_tags.limit(50)
     @bookmarks = collection.where(user_id: current_user)
-    index!
   end
 
   def recent
     @bookmarks = collection.public
     @tags = Bookmark.public.active_tags.limit(50)
-    render :index
   end
 
   protected
