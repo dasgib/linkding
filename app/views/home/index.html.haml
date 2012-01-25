@@ -1,5 +1,0 @@
-- if user_signed_in?
-  - if current_user.bookmarks.empty?
-    = link_to t('.add_first_bookmark'), new_bookmark_path
-  - else
-    %h2= t('home.index.all_bookmarks')
