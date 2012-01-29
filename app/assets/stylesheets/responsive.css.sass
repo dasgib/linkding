@@ -50,10 +50,13 @@
 @media screen and (max-width: 490px)
   +regrid(360px, 5px, 90px)
 
-  #content
-    +columns(12)
-  #sidebar
-    +columns(12)
+  #main, #header, #content, #sidebar
+    width: 100%
+    margin: 0
+  form, h1, h2, h3, .pagination, .flash
+    margin: 0 5px
+  .bookmark h3
+    margin: 10px 0
   h1
     font-size: 1.5em
     margin-bottom: 0.2em
