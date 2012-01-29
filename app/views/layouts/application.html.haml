@@ -5,6 +5,8 @@
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
+    %meta{charset: 'UTF-8'}
+    %meta{name: 'viewport', content: 'width=device-width'}
   %body
     %header#header
       %h1#logo= link_to "Linkding", root_path
@@ -29,7 +31,7 @@
     #main
       #content
         - flash.each do |name, msg|
-          = content_tag :div, msg, :id => "flash_#{name}"
+          = content_tag :div, msg, id: "flash_#{name}", class: 'flash'
         = yield
 
       #sidebar
