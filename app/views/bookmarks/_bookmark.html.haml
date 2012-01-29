@@ -1,6 +1,6 @@
 = content_tag_for(:section, bookmark, class: bookmark.public ? 'public' : 'private') do
   %h3= link_to bookmark.title, bookmark.url
-  = link_to truncate(bookmark.url, length: 90), bookmark.url
+  = link_to truncate(bookmark.url, length: 90), bookmark.url, target: '_blank'
   - if bookmark.description.present?
     .description
       = simple_format bookmark.description
