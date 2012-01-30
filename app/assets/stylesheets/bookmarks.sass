@@ -73,8 +73,6 @@ section.bookmark
     position: absolute
     right: 3px
     top: 0
-    visibility: hidden
-    width: 80px
     text-align: right
 
     a
@@ -83,14 +81,23 @@ section.bookmark
       &.delete
         +button-delete
         +small-button
+        +invisible-button
 
       &.edit
         +button-edit
         +small-button
+        +invisible-button
 
   &:hover
     .user-links
-      visibility: visible
+      a
+        &.delete
+          +button-delete
+          +small-button
+
+        &.edit
+          +button-edit
+          +small-button
 
   .description
     color: $quiet-color
