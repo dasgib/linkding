@@ -45,6 +45,10 @@
       .pre
         display: none
 
+  section.bookmark
+    .description
+      padding-right: 0
+
 @media screen and (min-width: 480px) and (max-width: 767px)
   +regrid($grid-widthx: 460px, $textarea-height: 3em)
 
@@ -71,6 +75,10 @@
     li.add-bookmark
       float: none
       margin-left: 0
+
+  section.bookmark
+    .description
+      padding-right: 0
 
 @media screen and (max-width: 479px)
   +regrid(290px, 5px, 3em)
