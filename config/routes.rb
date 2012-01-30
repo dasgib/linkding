@@ -6,5 +6,7 @@ Linkding::Application.routes.draw do
 
   devise_for :users
 
+  match 'bookmarklet.js' => 'tools#bookmarklet'
+
   root to: 'home#index'
 end

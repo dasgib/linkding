@@ -1,0 +1,57 @@
+CSRFTOKEN = '<%= form_authenticity_token %>';
+
+var LinkdingBookmarklet = {
+  version: '0.1',
+  url: '<%= root_url %>',
+
+  init: function (version, page) {
+    LinkdingBookmarklet.showBookmarklet();
+  },
+
+  showBookmarklet: function () {
+    var form = document.createElement('form');
+    form.method = 'POST';
+    form.action = '<%= bookmarks_url %>';
+    form.target = 'ldbmliframe';
+    form.style.display = 'none';
+
+    var field = document.createElement('input');
+    field.name = 'authenticity_token';
+    field.type = 'text';
+    field.value = CSRFTOKEN;
+    form.appendChild(field);
+
+    var field = document.createElement('input');
+    field.name = 'bookmark[url]';
+    field.type = 'text';
+    field.value = window.location;
+    form.appendChild(field);
+
+    var field = document.createElement('input');
+    field.name = 'bookmark[title]';
+    field.type = 'text';
+    field.value = window.document.title;
+    form.appendChild(field);
+
+    var field = document.createElement('input');
+    field.name = 'bookmark[description]';
+    field.type = 'text';
+    field.value = (window.getSelection ? window.getSelection() : (document.getSelection ? document.getSelection() : (document.selection ? document.selection.createRange().text : '')));
+    form.appendChild(field);
+
+    var ifr = document.createElement('iframe');
+    ifr.id = 'ldbmliframe';
+    ifr.name = 'ldbmliframe';
+    ifr.src = ' ';
+    ifr.setAttribute("style", "position: absolute; top: 0; left: 0; width: 100%; background: #fff; z-index: 5000; border-bottom: 5px solid #000;");
+
+    document.body.appendChild(form);
+    document.body.appendChild(ifr);
+
+    form.submit();
+  }
+};
+
+function ldbmlinit(version) {
+  LinkdingBookmarklet.init(version);
+}
