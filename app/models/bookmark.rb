@@ -11,6 +11,10 @@ class Bookmark < ActiveRecord::Base
 
   scope :public, where(public: true)
 
+  def self.find_by_url(url)
+    joins(:site).where("sites.url" => url).first if url
+  end
+
   def self.active_tags
     tag_counts.order('count desc')
   end
