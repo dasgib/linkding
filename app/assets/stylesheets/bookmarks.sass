@@ -5,9 +5,6 @@ section.bookmark
   margin-bottom: 1em
   border-bottom: 1px solid lighten($silver, 15%)
 
-  .tags
-    margin-top: 10px
-
   &:last-child
     border-bottom: 0
     margin-bottom: 0
@@ -16,9 +13,6 @@ section.bookmark
   &.private
     > a:before
       content: '(private) '
-
-  .tags
-    // width: 70%
 
   .favicon
     float: left
@@ -71,8 +65,8 @@ section.bookmark
 
   .user-links
     position: absolute
-    right: 3px
-    top: 0
+    right: 0
+    bottom: 0.5em
     text-align: right
 
     a
@@ -105,7 +99,17 @@ section.bookmark
     margin-top: 0.5em
 
     p
-      margin-bottom: 0.5em
+      margin: 0
+
+      & + p
+        margin-top: 0.5em
+
+  .tags
+    margin-top: 10px
+    li
+      margin-bottom: 0
+      margin-top: 5px
+
 
 form.bookmark
   @extend form.wide
