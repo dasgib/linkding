@@ -18,7 +18,7 @@ class BookmarksController < InheritedResources::Base
   protected
 
   def collection
-    @bookmarks ||= end_of_association_chain.includes(:site, :tags).order("created_at desc")
+    @bookmarks ||= end_of_association_chain.includes(:site, :tags, :user).order("created_at desc")
   end
 
   def begin_of_association_chain
