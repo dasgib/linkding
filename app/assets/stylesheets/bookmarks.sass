@@ -128,36 +128,21 @@ ul.tags
 
     a
       display: inline-block
-      height: 17px
-      margin-left: 9px
-      padding: 0 10px
-      +border-right-radius(5px)
-      line-height: 1.4
+      position: relative
+      padding: 0 7px 0 15px
+      +border-radius(5px)
       background: $tag-color
       color: $tag-text-color
       text-decoration: none
 
-      position: relative
-
-      &:before
-        content: ""
-        position: absolute
-        top: 0
-        left: -8px
-        width: 0
-        height: 0
-        border-color: transparent $tag-color transparent transparent
-        border-style: solid
-        border-width: 8px 8px 8px 0
-
       &:after
         content: ""
         position: absolute
-        top: 7px
-        left: 0
-        width: 4px
-        height: 4px
-        +border-radius(2px)
+        top: 6px
+        left: 5px
+        width: 6px
+        height: 6px
+        +border-radius(4px)
         background: #fff
 
       &:hover
