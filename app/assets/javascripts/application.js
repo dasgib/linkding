@@ -17,3 +17,7 @@
 //= require jquery.tagBox
 
 //= require_tree .
+
+$().ready(function() {
+  $('#bookmark_tag_list').tagBox();
+});
