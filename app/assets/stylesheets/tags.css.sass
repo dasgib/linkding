@@ -1,16 +1,12 @@
 @mixin tag()
-  @extend a
   display: inline-block
   padding: 0 5px
   margin: 0
   margin-bottom: 3px
-  border: 1px solid darken(#dee7f8, 8%)
+  border: 1px solid darken($tag-background, 8%)
   +border-radius(2px)
-  background: #dee7f8
-  color: $link-color
-
-  &:hover
-    @extend a:hover
+  background: $tag-background
+  color: $tag-color
 
 ul.tags
   margin: 0
@@ -20,3 +16,7 @@ ul.tags
   > li
     a
       +tag
+
+form ul.tagbox
+  li.tag
+    +tag
