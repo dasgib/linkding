@@ -1,16 +1,19 @@
 form ul.tagbox
   overflow: hidden
+  padding: 3px
+  padding-bottom: 0
   cursor: text
   @extend input[type=text]
-  padding-bottom: 0
+  list-style: none
 
   &.focused
     @extend input[type=text]:focus
 
-  li
+  li.tag
+    +tag
     float: left
     list-style-type: none
-    margin: 0 5px 5px 0
+    margin: 0 3px 3px 0
 
   input[type=text]
     width: 50px
@@ -19,6 +22,7 @@ form ul.tagbox
     padding: 0
     outline: 0
     margin-top: 4px
+    margin-bottom: 5px
 
   a.close
     margin-left: 3px
