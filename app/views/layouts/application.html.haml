@@ -4,6 +4,11 @@
     %title Linkding
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
+    - if content_for? :javascript
+      = javascript_tag do
+        $().ready(function(){
+        = yield :javascript
+        });
     = csrf_meta_tags
     %meta{charset: 'UTF-8'}
     %meta{name: 'viewport', content: 'width=device-width'}

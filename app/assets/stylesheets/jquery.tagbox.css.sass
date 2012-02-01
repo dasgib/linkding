@@ -1,0 +1,26 @@
+form ul.tagbox
+  overflow: hidden
+  cursor: text
+  @extend input[type=text]
+  padding-bottom: 0
+
+  &.focused
+    @extend input[type=text]:focus
+
+  li
+    float: left
+    list-style-type: none
+    margin: 0 5px 5px 0
+
+  input[type=text]
+    width: 50px
+    margin: 0
+    border: 0
+    padding: 0
+    outline: 0
+    margin-top: 4px
+
+  a.close
+    margin-left: 5px
+    text-transform: uppercase
+    font-size: 80%
