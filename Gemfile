@@ -15,6 +15,7 @@ gem 'inherited_resources'
 gem 'has_scope'
 gem 'will_paginate', '~> 3.0'
 gem 'nokogiri'
+gem 'tire', git: 'https://github.com/karmi/tire.git'
 
 # Gems used only for assets and not required
 # in production environments by default.
