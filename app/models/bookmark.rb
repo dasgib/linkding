@@ -1,4 +1,16 @@
 class Bookmark < ActiveRecord::Base
+  include Tire::Model::Search
+  include Tire::Model::Callbacks
+
+  mapping do
+    indexes :id, index: :not_analyzed
+    indexes :title
+    indexes :description
+    indexes :url, as: 'url'
+    indexes :tags, as: 'tag_list', analyzer: 'keyword'
+    indexes :user_id, index: :not_analyzed
+  end
+
   belongs_to :site
   belongs_to :user
   belongs_to :import
