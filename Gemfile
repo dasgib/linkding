@@ -24,6 +24,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'compass', '>= 0.12.alpha.4'
   gem 'compass-lucid-grid', require: 'lucid'
+  gem 'jquery-ui-rails'
 end
 
 group :test do
