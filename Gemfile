@@ -23,6 +23,7 @@ group :assets do
   gem 'therubyracer'
   gem 'uglifier', '>= 1.0.3'
   gem 'compass', '>= 0.12.alpha.4'
+  gem 'compass-rails'
   gem 'compass-lucid-grid', require: 'lucid'
 end
 
