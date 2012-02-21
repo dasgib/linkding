@@ -18,6 +18,10 @@ class BookmarksController < InheritedResources::Base
     @bookmarks = collection.where(user_id: current_user)
   end
 
+  def search
+    @bookmarks = Bookmark.search(params[:q], page: (params[:page] || 1))
+  end
+
   def recent
     @bookmarks = apply_scopes(Bookmark).public.includes(:site, :tags, :user).order("created_at desc")
     @tags = Bookmark.public.active_tags.limit(50)

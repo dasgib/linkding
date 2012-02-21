@@ -1,0 +1,11 @@
+%h1 Search
+
+= form_tag search_bookmarks_path, method: :get do
+  = text_field_tag :q, params[:q]
+  = submit_tag "Search", name: nil
+
+= paginated_section @bookmarks do
+  = render @bookmarks
+
+-# content_for :sidebar do
+  = render 'tag_list'

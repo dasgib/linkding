@@ -1,6 +1,7 @@
 Linkding::Application.routes.draw do
   resources :bookmarks, except: :show do
     get :recent, on: :collection
+    get :search, on: :collection
   end
   resource :import, only: [:show, :create], controller: 'Import'
 

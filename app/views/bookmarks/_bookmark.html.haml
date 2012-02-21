@@ -5,7 +5,7 @@
     .description
       = simple_format bookmark.description
   .tags
-    = bookmark.tags.map { |tag| link_to(tag.name, bookmarks_path(tag: tag.name), class: 'tag') }.join(", ").html_safe
+    = bookmark.tags.map { |tag| tag = tag.name if tag.respond_to?(:name) ; link_to(tag, bookmarks_path(tag: tag), class: 'tag') }.join(", ").html_safe
 
   - if user_signed_in? && bookmark.user == current_user
     .links
