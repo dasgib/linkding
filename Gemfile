@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.0'
+gem 'rails', '3.2.1'
 gem 'pg'
 #gem 'silent-postgres', group: [:development, :test]
 gem 'jquery-rails'
