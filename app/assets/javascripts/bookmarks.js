@@ -7,8 +7,13 @@ $().ready(function() {
     add_on_blur: true
   });
   var tagbox = $tagbox.data('tagbox');
+  
   $('ul.tagbox input').autocomplete({
-  	source: $tagbox.data('autocomplete'),
+  	source: function(request, response) {
+      response($.grep($tagbox.data('autocomplete'), function(item) {
+        return item.indexOf(request.term) == 0;
+      }).slice(0, 5).sort());
+    },
 
     open: function(event, ui) {
       tagbox.disableAddOnBlur();
