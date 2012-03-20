@@ -35,17 +35,21 @@
             'type' : 'text',
             'keydown' : function(e) {
                 if(e.keyCode == 13 || e.keyCode == self.delimit_key ) {
+                    if ($(this).val())
+                        e.preventDefault();
                     $(this).trigger("selectTag");
-                    e.preventDefault();
                 } else if (e.keyCode == 8 && $(this).val() == "" && self.tags.length > 0) {
                     self.removeTag(self.tags.length-1);
                     e.preventDefault();
                 }
             },
             'blur' : function(e) {
-                var v = $(this).val();
-                if (v != "") self.addTag(v);
-                $(this).val("");
+                if (self.options.add_on_blur) {
+                    var v = $(this).val();
+                    if (v != "")
+                        self.addTag(v);
+                    $(this).val("");
+                }
             }
         });
 
@@ -119,6 +123,19 @@
                 tags = this.tags.join(",");
             }
             this.input.val(tags);
+        },
+        commitTag: function() {
+            if(!this.tagInput.val()) {
+                return;
+            }
+            this.addTag(this.tagInput.val());
+            this.tagInput.val("");
+        },
+        disableAddOnBlur: function() {
+            this.options.add_on_blur = false;
+        },
+        enableAddOnBlur: function() {
+            this.options.add_on_blur = true;
         }
     }
 
@@ -137,9 +154,9 @@
         }
         var options = $.extend(defaults, options);
         return this.each(function() {
-
             var input = $(this);
             var tagbox = new TagBox(input, options);
+            input.data('tagbox', tagbox);
         });
     }
 })(jQuery);
