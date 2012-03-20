@@ -21,6 +21,10 @@ en:
       new: "New Bookmark"
     recent:
       title: "Recent bookmarks"
+    bookmark:
+      time_ago: "%{time} ago"
+      by_author: "by %{author}"
+      by_me: "by me"
   back: "Back"
   public: "public"
   private: "private"
