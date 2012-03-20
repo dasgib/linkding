@@ -1,14 +1,14 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.0'
+gem 'rails', '~> 3.2.2'
 gem 'pg'
 #gem 'silent-postgres', group: [:development, :test]
 gem 'jquery-rails'
 gem 'haml'
 gem 'haml-rails', group: :development
-gem 'sass-rails',   '~> 3.2.0'
+gem 'sass-rails', '~> 3.2.0'
 gem 'devise'
-gem 'simple_form'
+gem 'simple_form', '~> 1.5.2'
 gem 'acts-as-taggable-on'
 gem 'foreigner'
 gem 'inherited_resources'
@@ -23,11 +23,12 @@ group :assets do
   gem 'therubyracer'
   gem 'uglifier', '>= 1.0.3'
   gem 'compass', '>= 0.12.alpha.4'
+  gem 'compass-rails'
   gem 'compass-lucid-grid', require: 'lucid'
 end
 
 group :test do
-  gem 'rspec', '~> 2.8.0'
+  gem 'rspec', '~> 2.9.0'
   gem 'spork', '> 0.9.0.rc'
   gem 'cucumber'
   gem 'cucumber-rails', require: false
@@ -40,7 +41,7 @@ group :test do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 2.8.1'
+  gem 'rspec-rails', '~> 2.9.0'
   gem 'factory_girl_rails'
 end
 
