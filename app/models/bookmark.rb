@@ -26,4 +26,9 @@ class Bookmark < ActiveRecord::Base
   def url
     self.site.try(:url)
   end
+
+  def copy_as_new
+    Bookmark.new(url: self.url, title: self.title, description: self.description, tag_list: self.tag_list)
+  end
+
 end
