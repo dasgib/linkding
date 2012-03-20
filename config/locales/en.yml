@@ -25,6 +25,7 @@ en:
       time_ago: "%{time} ago"
       by_author: "by %{author}"
       by_me: "by me"
+      copy: "Copy"
   back: "Back"
   public: "public"
   private: "private"

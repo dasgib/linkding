@@ -9,6 +9,9 @@ class BookmarksController < InheritedResources::Base
     if params[:bookmark] && bookmark = current_user.bookmarks.find_by_url(params[:bookmark][:url])
       redirect_to edit_bookmark_path(bookmark)
     else
+      if params[:copy_id]
+        @bookmark = Bookmark.find(params[:copy_id]).copy_as_new
+      end
       new!
     end
   end

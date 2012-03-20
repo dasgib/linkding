@@ -19,3 +19,6 @@
     .links
       = link_to t('edit'), edit_bookmark_path(bookmark)
       = link_to t('destroy'), bookmark, :confirm => t('confirm'), :method => :delete
+  - if user_signed_in? && bookmark.user != current_user
+    .links
+      = link_to t('.copy'), new_bookmark_path(copy_id: bookmark.id)
