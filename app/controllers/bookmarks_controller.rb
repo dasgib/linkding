@@ -3,7 +3,7 @@ class BookmarksController < InheritedResources::Base
 
   has_scope :tagged_with, as: 'tag'
   has_scope :page, default: 1, only: [:index, :recent]
-  before_filter :read_tags, only: [:new, :edit]
+  before_filter :read_tags, only: [:new, :create, :edit, :update]
 
   def new
     if params[:bookmark] && bookmark = current_user.bookmarks.find_by_url(params[:bookmark][:url])
