@@ -24,9 +24,11 @@ $().ready(function() {
     },
 
     select: function(event, ui) {
-      $(this).val(ui.item.value);
-      tagbox.commitTag();
       event.preventDefault();
+      if (event.originalEvent.originalEvent.type != "keydown") {
+        $(this).val("");
+        tagbox.addTag(ui.item.value);
+      }
     }
 
   });
