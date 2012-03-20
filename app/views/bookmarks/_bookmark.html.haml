@@ -7,6 +7,14 @@
   .tags
     = bookmark.tags.map { |tag| link_to(tag.name, bookmarks_path(tag: tag.name), class: 'tag') }.join(", ").html_safe
 
+  .info
+    %span.date{title: l(bookmark.created_at)}
+      = t('.time_ago', time: time_ago_in_words(bookmark.created_at))
+    %span.author
+      - if user_signed_in? && bookmark.user == current_user
+        = t('.by_me')
+      - else
+        = t('.by_author', author: bookmark.user.username)
   - if user_signed_in? && bookmark.user == current_user
     .links
       = link_to t('edit'), edit_bookmark_path(bookmark)
