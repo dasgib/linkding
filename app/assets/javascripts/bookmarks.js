@@ -11,7 +11,7 @@ $().ready(function() {
   $('ul.tagbox input').autocomplete({
   	source: function(request, response) {
       response($.grep($tagbox.data('autocomplete'), function(item) {
-        return item.indexOf(request.term) == 0;
+        return item.indexOf(request.term) == 0 && tagbox.tags.indexOf(item) == -1;
       }).slice(0, 5).sort());
     },
 
