@@ -3,6 +3,7 @@ class BookmarksController < InheritedResources::Base
 
   has_scope :tagged_with, as: 'tag'
   has_scope :page, default: 1, only: [:index, :recent]
+  before_filter :read_tags, only: [:new, :edit]
 
   def new
     if params[:bookmark] && bookmark = current_user.bookmarks.find_by_url(params[:bookmark][:url])
@@ -31,5 +32,9 @@ class BookmarksController < InheritedResources::Base
 
   def begin_of_association_chain
     current_user
+  end
+
+  def read_tags
+    @tags = current_user.active_tags.limit(100)
   end
 end

@@ -5,7 +5,7 @@
     = f.input :url
     = f.input :title
     = f.input :description
-    = f.input :tag_list
+    = f.input :tag_list, input_html: {data: {autocomplete: @tags.map(&:name)}}
     = f.input :public
 
   .actions
