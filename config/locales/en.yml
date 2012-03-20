@@ -35,7 +35,7 @@ en:
     sign_out: "Sign out"
     sign_in: "Sign in"
     add_bookmark: "Add Bookmark"
-    all_bookmarks: "All Bookmarks"
+    my_bookmarks: "My Bookmarks"
     import: "Import"
     recent_bookmarks: "Recent Bookmarks"
   home:
