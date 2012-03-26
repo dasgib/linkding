@@ -1,5 +1,6 @@
 @import blueprint/typography
 @import blueprint/interaction
+@import "compass/typography/lists"
 
 // $blueprint-font-family: "Helvetica Neue", Arial, Helvetica, sans-serif
 // $blueprint-fixed-font-family: "andale mono", "lucida console", monospace
@@ -22,10 +23,10 @@ body
   +container
 
 #logo
-  +columns(3)
+  +columns(2)
 
 #navigation
-  +columns(6)
+  +columns(7)
 
 #account-nav
   +columns(3)
@@ -47,3 +48,14 @@ body
 
 a
   text-decoration: none
+
+#navigation
+  ul
+    +horizontal-list-container
+    li
+      +no-bullet
+      white-space: no-wrap
+      +float(left)
+      a
+        padding: 1em .5em
+        display: block
