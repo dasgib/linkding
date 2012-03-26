@@ -9,7 +9,7 @@ class Bookmark < ActiveRecord::Base
 
   acts_as_taggable
 
-  scope :public, where(public: true)
+  scope :public_visible, where(public: true)
 
   def self.find_by_url(url)
     joins(:site).where("sites.url" => url).first if url

@@ -23,8 +23,8 @@ class BookmarksController < InheritedResources::Base
   end
 
   def recent
-    @bookmarks = apply_scopes(Bookmark).public.includes(:site, :tags, :user).order("created_at desc")
-    @tags = Bookmark.public.active_tags.limit(50)
+    @bookmarks = apply_scopes(Bookmark).public_visible.includes(:site, :tags, :user).order("created_at desc")
+    @tags = Bookmark.public_visible.active_tags.limit(50)
   end
 
   protected
