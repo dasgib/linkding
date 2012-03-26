@@ -3,6 +3,7 @@ class BookmarksController < InheritedResources::Base
 
   has_scope :tagged_with, as: 'tag'
   has_scope :page, default: 1, only: [:index, :recent]
+  has_scope :search, only: [:index, :recent], as: 'q'
   before_filter :read_tags, only: [:new, :create, :edit, :update]
 
   def new
@@ -30,7 +31,7 @@ class BookmarksController < InheritedResources::Base
   protected
 
   def collection
-    @bookmarks ||= end_of_association_chain.includes(:site, :tags, :user).order("created_at desc")
+    @bookmarks ||= end_of_association_chain.includes(:site, :tags, :user).order("bookmarks.created_at desc")
   end
 
   def begin_of_association_chain
