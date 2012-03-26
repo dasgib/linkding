@@ -44,7 +44,7 @@ Spork.prefork do
     # If you're not using ActiveRecord, or you'd prefer not to run each of your
     # examples within a transaction, remove the following line or assign false
     # instead of true.
-    config.use_transactional_fixtures = true
+    #config.use_transactional_fixtures = true
 
     # If true, the base class of anonymous controllers will be inferred
     # automatically. This will be the default behavior in future versions of
@@ -52,6 +52,21 @@ Spork.prefork do
     config.infer_base_class_for_anonymous_controllers = false
 
     config.include FactoryGirl::Syntax::Methods
+
+
+    # Set up database_cleaner
+    config.before(:suite) do
+      DatabaseCleaner.strategy = :transaction
+      DatabaseCleaner.clean_with(:truncation)
+    end
+
+    config.before(:each) do
+      DatabaseCleaner.start
+    end
+
+    config.after(:suite) do
+      DatabaseCleaner.clean
+    end
   end
 
 end
