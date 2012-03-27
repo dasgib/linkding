@@ -20,13 +20,10 @@ class Bookmark < ActiveRecord::Base
   end
 
   def self.search(query, language = 'english')
-    tags_sql = "SELECT tags.name FROM tags, taggings " +
-        "WHERE tag_id = tags.id AND taggable_id = bookmarks.id AND taggable_type = 'Bookmark'"
-
     columns = [
         "title",
         "coalesce(description, '')",
-        "array_to_string(array(#{tags_sql}), ' ')"
+        "array_to_string(tag_array, ' ')"
     ]
 
     tsvector_sql = columns.map { |c| "to_tsvector('#{language}', #{c})" }.join(" || ")
