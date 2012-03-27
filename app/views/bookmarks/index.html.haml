@@ -1,9 +1,7 @@
 - content_for :head do
   = auto_discovery_link_tag(:atom, params.merge(format: 'atom'))
 
-= form_tag bookmarks_path, method: :get, class: 'search_form' do
-  = text_field_tag :q, params[:q]
-  =# submit_tag "Go", name: nil
+= render 'search_form'
 
 %h1= t('.title')
 
