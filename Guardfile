@@ -1,6 +1,10 @@
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
 
+guard 'bundler' do
+  watch('Gemfile')
+end
+
 guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec_env => { 'RAILS_ENV' => 'test' } do
   watch('config/application.rb')
   watch('config/environment.rb')
@@ -13,7 +17,7 @@ guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec_env => { 'RAIL
   watch(%r{features/support/}) { :cucumber }
 end
 
-guard 'rspec', :version => 2, :cli => '--drb' do
+guard 'rspec', :version => 2, :cli => '--drb --format documentation' do
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
   watch('spec/spec_helper.rb')  { "spec" }
@@ -35,3 +39,11 @@ guard 'cucumber', cli: '--drb' do
   watch(%r{^features/support/.+$})          { 'features' }
   watch(%r{^features/step_definitions/(.+)_steps\.rb$}) { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'features' }
 end
+
+group :ctags do
+  guard :shell do
+    watch(%r{^(?:app|lib|vendor)/.+\.(?:rb|js)$}) { `ctags -R -f .tags` }
+    #watch('Gemfile.lock') { `bundle list --paths | xargs ctags -R -f .gemtags` }
+  end
+end
+
