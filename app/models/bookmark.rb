@@ -19,6 +19,21 @@ class Bookmark < ActiveRecord::Base
     tag_counts.order('count desc')
   end
 
+  def self.search(query, language = 'english')
+    tags_sql = "SELECT tags.name FROM tags, taggings " +
+        "WHERE tag_id = tags.id AND taggable_id = bookmarks.id AND taggable_type = 'Bookmark'"
+
+    columns = [
+        "title",
+        "coalesce(description, '')",
+        "array_to_string(array(#{tags_sql}), ' ')"
+    ]
+
+    tsvector_sql = columns.map { |c| "to_tsvector('#{language}', #{c})" }.join(" || ")
+
+    where("#{tsvector_sql} @@ plainto_tsquery('#{language}', ?)", query)
+  end
+
   def url=(url)
     self.site = Site.find_or_create_by_url(url)
   end

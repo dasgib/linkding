@@ -17,13 +17,30 @@ When /^I have bookmarks$/ do
   step %{I press "Create Bookmark"}
 end
 
+When /^I search for "(.*)"$/ do |query|
+  step %{I fill in "Search" with "#{query}"}
+  step %{I press "Go"}
+end
+
 Given /^there is a bookmark with this data:$/ do |table|
   Factory.create(:bookmark, table.rows_hash.merge(user: @user))
+end
+
+Given /^there is a bookmark from another user with this data:$/ do |table|
+  table.hashes.each do |hash|
+    Factory.create(:bookmark, hash)
+  end
 end
 
 Given /^there is only one bookmark with this data:$/ do |table|
   Bookmark.delete_all
   step %{there is a bookmark with this data:}, table
+end
+
+Given /^there are the following bookmarks:$/ do |table|
+  table.hashes.each do |bookmark|
+    Factory.create(:bookmark, bookmark.merge(user: @user))
+  end
 end
 
 Given /^I (?:have|create) (\d+) bookmark(?:s)?$/ do |count|
