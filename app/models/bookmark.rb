@@ -11,6 +11,8 @@ class Bookmark < ActiveRecord::Base
 
   scope :public_visible, where(public: true)
 
+  after_validation :set_tag_array
+
   def self.find_by_url(url)
     joins(:site).where("sites.url" => url).first if url
   end
@@ -22,12 +24,11 @@ class Bookmark < ActiveRecord::Base
   def self.search(query, language = 'english')
     columns = [
         "title",
-        "coalesce(description, '')",
-        "array_to_string(tag_array, ' ')"
+        "coalesce(description, '')"
     ]
 
     tsvector_sql = columns.map { |c| "to_tsvector('#{language}', #{c})" }.join(" || ")
-
+    tsvector_sql << " || array_to_tsvector('#{language}', tag_array)"
     where("#{tsvector_sql} @@ plainto_tsquery('#{language}', ?)", query)
   end
 
@@ -43,4 +44,8 @@ class Bookmark < ActiveRecord::Base
     Bookmark.new(url: self.url, title: self.title, description: self.description, tag_list: self.tag_list)
   end
 
+
+  def set_tag_array
+    self.tag_array = self.tag_list
+  end
 end
