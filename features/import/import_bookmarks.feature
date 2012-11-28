@@ -9,7 +9,7 @@ Feature: Import bookmarks
   Scenario: Press Upload without attaching a file
     Given I go to the import page
     When I press "Upload"
-    Then I should see "File can't be blank"
+    Then the "File" field should have the error "can't be blank"
 
   Scenario: Import bookmarks
     Given I have no bookmarks

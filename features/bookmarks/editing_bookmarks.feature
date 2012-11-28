@@ -29,4 +29,4 @@ Feature: Editing bookmarks
   Scenario: Update a bookmark with invalid data
     When I fill in "URL" with ""
     And I press "Update Bookmark"
-    Then I should see "URL can't be blank"
+    Then the "URL" field should have the error "can't be blank"

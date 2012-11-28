@@ -37,7 +37,7 @@ Feature: Add bookmark
   Scenario: User adds empty bookmark
     Given I go to the new bookmark page
     When I press "Create Bookmark"
-    Then I should see "URL can't be blank"
+    Then the "URL" field should have the error "can't be blank"
 
   @wip
   Scenario: User should see a wizard when she has no bookmarks
