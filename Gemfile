@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 3.2.2'
+gem 'rails', '~> 3.2.9'
 gem 'pg'
 #gem 'silent-postgres', group: [:development, :test]
 gem 'jquery-rails'
@@ -23,7 +23,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.0'
   gem 'therubyracer'
   gem 'uglifier', '>= 1.0.3'
-  gem 'compass', '>= 0.12.alpha.4'
+  gem 'compass'
   gem 'compass-rails'
   gem 'compass-lucid-grid', require: 'lucid'
   gem 'jquery-ui-rails'
@@ -35,7 +35,7 @@ group :test do
   gem 'cucumber'
   gem 'cucumber-rails', require: false
   gem 'cucumber-rails-training-wheels'
-  gem 'capybara'
+  gem 'capybara', '~> 1.1.4'
   gem 'database_cleaner'
   gem 'simplecov', require: false
   gem 'simplecov-rcov', require: false
@@ -44,7 +44,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.9.0'
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', '~> 3.6.0'
 end
 
 group :development do
