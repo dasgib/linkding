@@ -5,7 +5,7 @@
     .description
       = simple_format bookmark.description
   .tags
-    = bookmark.tags.map { |tag| link_to(tag.name, bookmarks_path(tag: tag.name), class: 'tag') }.join(", ").html_safe
+    = bookmark.tag_array.map { |tag| link_to(tag, bookmarks_path(tag: tag), class: 'tag') }.join(", ").html_safe
 
   .info
     %span.date{title: l(bookmark.created_at)}
