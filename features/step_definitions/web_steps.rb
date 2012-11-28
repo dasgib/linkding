@@ -170,27 +170,10 @@ Then /^the "([^"]*)" field should have the error "([^"]*)"$/ do |field, error_me
   using_formtastic = form_for_input[:class].include?('formtastic')
   error_class = using_formtastic ? 'error' : 'field_with_errors'
 
-  if classes.respond_to? :should
-    classes.should include(error_class)
-  else
-    assert classes.include?(error_class)
-  end
+  classes.should include(error_class)
 
-  if page.respond_to?(:should)
-    if using_formtastic
-      error_paragraph = element.find(:xpath, '../*[@class="inline-errors"][1]')
-      error_paragraph.should have_content(error_message)
-    else
-      page.should have_content("#{field.titlecase} #{error_message}")
-    end
-  else
-    if using_formtastic
-      error_paragraph = element.find(:xpath, '../*[@class="inline-errors"][1]')
-      assert error_paragraph.has_content?(error_message)
-    else
-      assert page.has_content?("#{field.titlecase} #{error_message}")
-    end
-  end
+  error_paragraph = element.find(:xpath, '../*[@class="error"]')
+  error_paragraph.should have_content(error_message)
 end
 
 Then /^the "([^"]*)" field should have no error$/ do |field|

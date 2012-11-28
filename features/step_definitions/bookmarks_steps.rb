@@ -3,11 +3,11 @@ Given /^I have no bookmarks$/ do
 end
 
 When /^I have a public bookmark with title "([^"]*)"$/ do |title|
-  Factory.create(:bookmark, title: title, user: @user, public: true)
+  FactoryGirl.create(:bookmark, title: title, user: @user, public: true)
 end
 
 When /^there is a (private|public) bookmark of another user with title "([^"]*)"$/ do |visibility, title|
-  Factory.create(:bookmark, title: title, user: Factory.create(:user), public: (visibility == 'public'))
+  FactoryGirl.create(:bookmark, title: title, user: FactoryGirl.create(:user), public: (visibility == 'public'))
 end
 
 When /^I have bookmarks$/ do
@@ -23,12 +23,12 @@ When /^I search for "(.*)"$/ do |query|
 end
 
 Given /^there is a bookmark with this data:$/ do |table|
-  Factory.create(:bookmark, table.rows_hash.merge(user: @user))
+  FactoryGirl.create(:bookmark, table.rows_hash.merge(user: @user))
 end
 
 Given /^there is a bookmark from another user with this data:$/ do |table|
   table.hashes.each do |hash|
-    Factory.create(:bookmark, hash)
+    FactoryGirl.create(:bookmark, hash)
   end
 end
 
@@ -39,13 +39,13 @@ end
 
 Given /^there are the following bookmarks:$/ do |table|
   table.hashes.each do |bookmark|
-    Factory.create(:bookmark, bookmark.merge(user: @user))
+    FactoryGirl.create(:bookmark, bookmark.merge(user: @user))
   end
 end
 
 Given /^I (?:have|create) (\d+) bookmark(?:s)?$/ do |count|
   count.to_i.times do |i|
-    Factory.create(:bookmark, user: @user)
+    FactoryGirl.create(:bookmark, user: @user)
   end
 end
 

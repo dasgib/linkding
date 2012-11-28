@@ -4,7 +4,7 @@ FactoryGirl.define do
     email { "#{username}@example.com" }
     password 'secret'
 
-    after_create do |user, proxy|
+    after(:create) do |user, proxy|
       user.confirm!
     end
   end

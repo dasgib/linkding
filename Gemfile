@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 3.2.2'
+gem 'rails', '~> 3.2.9'
 gem 'pg'
 #gem 'silent-postgres', group: [:development, :test]
 gem 'jquery-rails'
@@ -8,7 +8,7 @@ gem 'haml'
 gem 'haml-rails', group: :development
 gem 'sass-rails', '~> 3.2.0'
 gem 'devise'
-gem 'simple_form', '~> 1.5.2'
+gem 'simple_form', '~> 2.0.4'
 gem 'acts-as-taggable-on'
 gem 'foreigner'
 gem 'inherited_resources'
@@ -23,10 +23,11 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.0'
   gem 'therubyracer'
   gem 'uglifier', '>= 1.0.3'
-  gem 'compass', '>= 0.12.alpha.4'
+  gem 'compass'
   gem 'compass-rails'
   gem 'compass-lucid-grid', require: 'lucid'
   gem 'jquery-ui-rails'
+  gem 'turbo-sprockets-rails3'
 end
 
 group :test do
@@ -35,7 +36,7 @@ group :test do
   gem 'cucumber'
   gem 'cucumber-rails', require: false
   gem 'cucumber-rails-training-wheels'
-  gem 'capybara'
+  gem 'capybara', '~> 1.1.4'
   gem 'database_cleaner'
   gem 'simplecov', require: false
   gem 'simplecov-rcov', require: false
@@ -44,22 +45,12 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.9.0'
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', '~> 3.6.0'
 end
 
 group :development do
   # Deployment
   gem 'capistrano'
-
-  # Testing
-  gem 'guard'
-  gem 'guard-rspec'
-  gem 'guard-cucumber'
-  gem 'guard-spork'
-  gem 'guard-shell'
-  gem 'guard-bundler'
-  # gem 'libnotify' # For guard notifications on linux
-  gem 'ruby_gntp' # For the growl network protocol
 
   gem 'thin'
 end

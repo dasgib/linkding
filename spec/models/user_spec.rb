@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe User do
-  subject { Factory.create(:user) }
+  subject { FactoryGirl.create(:user) }
 
   describe "#active_tags" do
     it { should have(0).active_tags }
