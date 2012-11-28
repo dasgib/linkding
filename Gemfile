@@ -8,7 +8,7 @@ gem 'haml'
 gem 'haml-rails', group: :development
 gem 'sass-rails', '~> 3.2.0'
 gem 'devise'
-gem 'simple_form', '~> 1.5.2'
+gem 'simple_form', '~> 2.0.4'
 gem 'acts-as-taggable-on'
 gem 'foreigner'
 gem 'inherited_resources'
