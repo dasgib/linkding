@@ -23,9 +23,9 @@ Feature: Import bookmarks
     And I should see "http://logio.org"
     And I should see "TextboxList | Guillermo Rauch's Devthought"
     And I should see "http://www.devthought.com/projects/mootools/textboxlist/"
-    And I should see "tags (2)"
-    And I should see "mootools (1)"
-    And I should see "rails (1)"
+    And I should see "tags"
+    And I should see "mootools"
+    And I should see "rails"
 
   Scenario: Import bookmarks twice
     Given I have no bookmarks
