@@ -1,4 +1,4 @@
 %h2 Tags
 %ul.tags
-  - @tags.each do |tag|
-    %li.tag= link_to "#{tag.name} (#{tag.count})", tag: tag.name
+  - @tags.pluck(:name).each do |tag|
+    %li.tag= link_to tag, tag: tag
