@@ -11,6 +11,8 @@ class Bookmark < ActiveRecord::Base
 
   scope :public_visible, where(public: true)
 
+  scope :recent, ->(limit = 200) { order("id DESC").limit(limit) }
+
   after_validation :set_tag_array
 
   def self.find_by_url(url)
@@ -19,6 +21,16 @@ class Bookmark < ActiveRecord::Base
 
   def self.active_tags
     tag_counts.order('count desc')
+  end
+
+  def self.recent_tags
+    ActsAsTaggableOn::Tag.joins(:taggings)
+      .where("taggings.taggable_id IN (#{scoped.select("id").to_sql})")
+      .where("taggings.taggable_type" => Bookmark)
+  end
+
+  def self.active_tag_names
+    recent_tags.group("tags.id").order("count(tags.id) DESC").select("tags.name")
   end
 
   def self.search(query, language = 'english')
