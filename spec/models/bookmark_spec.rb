@@ -5,9 +5,9 @@ describe Bookmark do
     before(:all) do
       Bookmark.delete_all
       User.delete_all
-      Factory.create(:bookmark, title: "foobar")
-      Factory.create(:bookmark, title: "Something else", description: "learning")
-      Factory.create(:bookmark, title: "Test", url: "http://example.com", description: "test", tag_list: "learns, mytag")
+      FactoryGirl.create(:bookmark, title: "foobar")
+      FactoryGirl.create(:bookmark, title: "Something else", description: "learning")
+      FactoryGirl.create(:bookmark, title: "Test", url: "http://example.com", description: "test", tag_list: "learns, mytag")
     end
 
     it "should find 1 for foobar" do
