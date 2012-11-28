@@ -12,6 +12,10 @@ class User < ActiveRecord::Base
   has_many :imports
 
   def active_tags
-    bookmarks.active_tags
+    bookmarks.recent.active_tags
+  end
+
+  def active_tag_names
+    bookmarks.recent.active_tag_names
   end
 end
