@@ -1,4 +1,4 @@
 = form_tag Hash.new, method: :get, class: 'search_form' do
-  =# label_tag :q, "Search"
-  = text_field_tag :q, params[:q], placeholder: 'Search'
+  = label_tag :q, "Search"
+  = text_field_tag :q, params[:q]
   = submit_tag "Go", name: nil
