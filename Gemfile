@@ -51,15 +51,5 @@ group :development do
   # Deployment
   gem 'capistrano'
 
-  # Testing
-  gem 'guard'
-  gem 'guard-rspec'
-  gem 'guard-cucumber'
-  gem 'guard-spork'
-  gem 'guard-shell'
-  gem 'guard-bundler'
-  # gem 'libnotify' # For guard notifications on linux
-  gem 'ruby_gntp' # For the growl network protocol
-
   gem 'thin'
 end
