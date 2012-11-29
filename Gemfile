@@ -31,12 +31,12 @@ group :assets do
 end
 
 group :test do
-  gem 'rspec', '~> 2.9.0'
+  gem 'rspec', '~> 2.12.0'
   gem 'spork', '> 0.9.0.rc'
   gem 'cucumber'
   gem 'cucumber-rails', require: false
   gem 'cucumber-rails-training-wheels'
-  gem 'capybara', '~> 1.1.4'
+  gem 'capybara', '~> 2.0.0'
   gem 'database_cleaner'
   gem 'simplecov', require: false
   gem 'simplecov-rcov', require: false
@@ -44,8 +44,8 @@ group :test do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 2.9.0'
-  gem 'factory_girl_rails', '~> 3.6.0'
+  gem 'rspec-rails', '~> 2.12.0'
+  gem 'factory_girl_rails', '~> 4.1.0'
 end
 
 group :development do
