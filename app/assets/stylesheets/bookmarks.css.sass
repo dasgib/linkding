@@ -39,7 +39,13 @@ section.bookmark
 form.new_bookmark, form.edit_bookmark
   @extend form.wide
 
-form.search_form
-  float: right
-  input[type=text]
-    width: 140px
+section.search
+  margin-bottom: 15px
+  form.search_form
+    input[type=text]
+      width: 100%
+      max-width: 150px
+      +border-radius(15px)
+      margin: 0
+    label, button, input[type=submit]
+      display: none

@@ -1,62 +1,69 @@
 @import "compass/utilities/lists"
 
-@mixin regrid($grid-widthx, $grid-gutterx: 5px, $textarea-height: 150px)
+@mixin regrid($grid-widthx, $grid-gutterx: 5px, $textarea-height: 150px, $account-columns: 3)
   $grid-columns: 12
   $grid-gutter: $grid-gutterx
   $grid-width: $grid-widthx
-  @include grid-reinit
+  +grid-reinit
 
-  #main, #header
-    @include container
+  .container
     padding: 0
-  #logo
-    +columns(3)
-  #navigation
-    +columns(4)
-    ul
-      +no-bullets
-      padding: 0
-      margin: 0
-      line-height: 1.1em
+  #header .main
+    +columns($grid-columns - $account-columns)
   #account-nav
-    +columns(5)
+    +columns($account-columns)
+    .account
+      width: ($account-columns * grid-column-width()) - ($grid-gutter * 2) - 35px
   #content
     +columns(9)
   #sidebar
     +columns(3)
-    ul
-      +no-bullets
-      padding: 0
-      margin: 0
 
-  #logo, #navigation, #account-nav, #content, #sidebar
+  #header .main, #account-nav, #content, #sidebar
     margin-left: $grid-gutter
     margin-right: $grid-gutter
+
+  #navigation ul li a
+    padding: 0
 
   $input-width: $grid-width - 2 * $grid-gutter - 12px - 20px
   form.wide
     +blueprint-form-sizes($input-width: $input-width, $textarea-width: $input-width, $textarea-height: $textarea-height)
 
+@mixin break-navigation($width)
+  #header
+    padding-bottom: 0
+  #navigation
+    ul
+      width: $width
+      clear: left
+      padding-top: 5px
+
 @media screen and (max-width: 990px) and (min-width: 651px)
   +regrid($grid-widthx: 640px)
 
 @media screen and (min-width: 491px) and (max-width: 650px)
-  +regrid($grid-widthx: 480px, $textarea-height: 90px)
-  h1
-    font-size: 2em
-    margin-bottom: 0.2em
-    margin-top: 0.2em
+  +regrid($grid-widthx: 480px, $textarea-height: 90px, $account-columns: 4)
+  +break-navigation(460px)
 
 @media screen and (max-width: 490px)
-  +regrid(360px, 5px, 90px)
-
-  #main, #header, #content, #sidebar
+  +regrid(360px, 5px, 90px, 5)
+  +break-navigation(330px)
+  #navigation
+    ul
+      padding: 5px
+      width: auto
+      li a
+        font-size: 0.9em
+  body
+    min-width: 250px
+  .container, #header .main, #main, #header, #content, #sidebar, #navigation
     width: 100%
-    margin: 0
+    margin-left: 0
+    margin-right: 0
+  #account-nav
+    position: absolute
+    top: 0
+    right: 0
   form, h1, h2, h3, .pagination, .flash
     margin: 0 5px
-  .bookmark h3
-    margin: 10px 0
-  h1
-    font-size: 1.5em
-    margin-bottom: 0.2em
