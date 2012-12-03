@@ -1,4 +1,5 @@
 @import "compass/utilities/lists"
+@import "compass/css3/box-sizing"
 
 @mixin regrid($grid-widthx, $grid-gutterx: 5px, $textarea-height: 150px, $account-columns: 3)
   $grid-columns: 12
@@ -48,22 +49,25 @@
 
 @media screen and (max-width: 490px)
   +regrid(360px, 5px, 90px, 5)
-  +break-navigation(330px)
+  +break-navigation(100%)
   #navigation
     ul
-      padding: 5px
-      width: auto
+      padding: 5px 0
+      width: 100%
       li a
         font-size: 0.9em
   body
     min-width: 250px
-  .container, #header .main, #main, #header, #content, #sidebar, #navigation
+  .container, #header .main, #main, #header, #sidebar, #navigation, #content
     width: 100%
     margin-left: 0
     margin-right: 0
+  .container
+    padding: 0 5px
+    +box-sizing(border-box)
   #account-nav
     position: absolute
     top: 0
     right: 0
-  form, h1, h2, h3, .pagination, .flash
-    margin: 0 5px
+  section.bookmark
+    margin: 0.5em -5px
