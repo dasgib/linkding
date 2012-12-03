@@ -1,5 +1,5 @@
 - content_for :head do
-  = auto_discovery_link_tag(:atom, params.merge(format: 'atom'))
+  = auto_discovery_link_tag(:atom, params.merge(format: 'atom', page: nil))
 
 %h1= t('.title')
 
