@@ -19,13 +19,13 @@ class BookmarksController < InheritedResources::Base
 
   def index
     # TODO: refactor tag list into a cell as soon as we have Cells
-    @tags = current_user.active_tag_names.limit(50)
+    @tags = current_user.active_tag_names.limit(20)
     @bookmarks = collection.where(user_id: current_user)
   end
 
   def recent
     @bookmarks = apply_scopes(Bookmark).public_visible.includes(:site, :user).order("bookmarks.created_at desc")
-    @tags = Bookmark.public_visible.active_tags.limit(50)
+    @tags = Bookmark.public_visible.limit(100).active_tag_names.limit(20)
   end
 
   protected

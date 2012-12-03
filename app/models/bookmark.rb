@@ -11,7 +11,7 @@ class Bookmark < ActiveRecord::Base
 
   scope :public_visible, where(public: true)
 
-  scope :recent, ->(limit = 200) { order("id DESC").limit(limit) }
+  scope :recent, ->(limit = 100) { order("id DESC").limit(limit) }
 
   after_validation :set_tag_array
 
@@ -26,7 +26,7 @@ class Bookmark < ActiveRecord::Base
   def self.recent_tags
     ActsAsTaggableOn::Tag.joins(:taggings)
       .where("taggings.taggable_id IN (#{scoped.select("id").to_sql})")
-      .where("taggings.taggable_type" => Bookmark)
+      .where(taggings: {taggable_type: "Bookmark", context: "tags"})
   end
 
   def self.active_tag_names
