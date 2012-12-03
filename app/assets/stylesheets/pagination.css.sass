@@ -3,12 +3,15 @@
 .pagination
   cursor: default
   margin: 1em 0
+  clear: both
   +legacy-pie-clearfix
   a, span, em
     padding: 0.2em 0.4em
     display: block
     float: left
     margin-right: 1px
+    min-width: 1em
+    text-align: center
   .disabled
     color: $link-disabled-color
     border: 1px solid lighten($link-disabled-color, 25%)
