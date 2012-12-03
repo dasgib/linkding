@@ -1,8 +1,6 @@
 - content_for :head do
   = auto_discovery_link_tag(:atom, params.merge(format: 'atom'))
 
-= render 'search_form'
-
 %h1= t('.title')
 
 = paginated_section @bookmarks do
@@ -11,4 +9,5 @@
 = link_to t('.new'), new_bookmark_path
 
 - content_for :sidebar do
+  = render 'search_form'
   = render 'tag_list'

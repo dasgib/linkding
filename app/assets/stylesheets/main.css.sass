@@ -1,34 +1,57 @@
 @import blueprint/typography
 @import blueprint/interaction
-
-// $blueprint-font-family: "Helvetica Neue", Arial, Helvetica, sans-serif
-// $blueprint-fixed-font-family: "andale mono", "lucida console", monospace
-// $blueprint-font-size: 12px
-// $link-color: blue
-// $link-hover-color: blue
-// $link-visited-color: blue
-$link-disabled-color: #999999
-
-$tag-background-color: #efefef
-$tag-color: #333
+@import compass/css3/images
+@import compass/utilities/lists
+@import compass/typography/links
+@import base
 
 +blueprint-typography
 
 body
-  background-color: white
-  padding-top: 10px
+  background-color: $background-color
 
-#main, #header
+#header
+  width: 100%
+  padding: 5px 0
+  margin-bottom: 15px
+  background-color: $header-background-color
+  +background(linear-gradient(top, lighten($header-background-color, 2%), $header-background-color))
+  border-bottom: 1px solid darken($header-background-color, 8%)
+
+.container
   +container
+  position: relative
+
+#header .main
+  +columns(9)
 
 #logo
-  +columns(3)
+  // +columns(2)
+  margin-bottom: 0
+  font-size: 2em
+  line-height: 30px
+  float: left
+  padding-right: 15px
+  a
+    +link-colors($font-color, lighten($font-color, 30%))
 
 #navigation
-  +columns(6)
+  // +columns(7)
+  ul
+    +horizontal-list
+    li
+      padding: 0 8px 0 0
+    li a
+      +link-colors($font-color, lighten($font-color, 30%))
+      font-weight: bold
+      line-height: 30px
 
 #account-nav
   +columns(3)
+  line-height: 1.3
+  .account
+    width: (3 * grid-column-width()) - ($grid-gutter * 2) - 35px
+    overflow: hidden
 
 #content
   +columns(9)
@@ -36,8 +59,13 @@ body
 #sidebar
   +columns(3)
 
+  h2
+    font-size: 1.5em
+    margin-bottom: 0.5em
+
 #avatar
   float: left
+  margin-right: 5px
 
 #flash_notice
   +success
@@ -47,3 +75,6 @@ body
 
 a
   text-decoration: none
+
+h1
+  font-size: 2em

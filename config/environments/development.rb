@@ -38,4 +38,7 @@ Linkding::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Enable SASS line numbers for FireSass
+  config.sass.debug_info = true
 end

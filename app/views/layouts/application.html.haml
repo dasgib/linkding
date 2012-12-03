@@ -6,34 +6,37 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
     %meta{charset: 'UTF-8'}
-    %meta{name: 'viewport', content: 'width=device-width'}
+    %meta{name: 'viewport', content: 'width=device-width,initial-scale=1.0,maximum-scale=1.0'}
     = yield :head
   %body
     %header#header
-      %h1#logo= link_to "Linkding", root_path
+      .container
+        .main
+          %h1#logo= link_to "Linkding", root_path
 
-      %nav#navigation
-        %ul
+          %nav#navigation
+            %ul
+              - if user_signed_in?
+                %li= link_to t('layout.add_bookmark'), new_bookmark_path
+                %li= link_to t('layout.my_bookmarks'), bookmarks_path
+                %li= link_to t('layout.recent_bookmarks'), recent_bookmarks_path
+                %li= link_to t('layout.import'), import_path
+
+        %nav#account-nav
           - if user_signed_in?
-            %li= link_to t('layout.add_bookmark'), new_bookmark_path
-            %li= link_to t('layout.my_bookmarks'), bookmarks_path
-            %li= link_to t('layout.recent_bookmarks'), recent_bookmarks_path
-            %li= link_to t('layout.import'), import_path
-
-      %nav#account-nav
-        - if user_signed_in?
-          .account
-            = current_user.email
             = avatar(current_user, id: 'avatar', https: true)
-          = link_to t('layout.sign_out'), destroy_user_session_path
-        - else
-          = link_to t('layout.sign_in'), new_user_session_path
+            .account
+              = current_user.email
+            = link_to t('layout.sign_out'), destroy_user_session_path
+          - else
+            = link_to t('layout.sign_in'), new_user_session_path
 
     #main
-      #content
-        - flash.each do |name, msg|
-          = content_tag :div, msg, id: "flash_#{name}", class: 'flash'
-        = yield
+      .container
+        #content
+          - flash.each do |name, msg|
+            = content_tag :div, msg, id: "flash_#{name}", class: 'flash'
+          = yield
 
-      #sidebar
-        = yield :sidebar
+        #sidebar
+          = yield :sidebar
