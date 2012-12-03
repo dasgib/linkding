@@ -3,11 +3,11 @@
   %head
     %title Linkding
     = stylesheet_link_tag    "application", :media => "all"
-    = javascript_include_tag "application"
     = csrf_meta_tags
     %meta{charset: 'UTF-8'}
     %meta{name: 'viewport', content: 'width=device-width'}
     = yield :head
+    = javascript_include_tag "application"
   %body
     %header#header
       .container
