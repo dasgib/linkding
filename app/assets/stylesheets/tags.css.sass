@@ -1,8 +1,7 @@
 @mixin tag()
   display: inline-block
-  padding: 0 5px
+  padding: 0 3px
   margin: 0
-  margin-bottom: 3px
   border: 1px solid darken($tag-background-color, 8%)
   +border-radius(2px)
   background: $tag-background-color
@@ -16,6 +15,7 @@ ul.tags
   > li
     a
       +tag
+      margin-bottom: 4px
 
 form ul.tagbox
   li.tag

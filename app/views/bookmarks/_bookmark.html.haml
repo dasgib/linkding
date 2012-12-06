@@ -1,11 +1,14 @@
 = content_tag_for(:section, bookmark, class: bookmark.public ? 'public' : 'private') do
   %h3= link_to bookmark.title, bookmark.url
-  = link_to truncate(bookmark.url, length: 90), bookmark.url, target: '_blank'
+  .link
+    = link_to truncate(bookmark.url, length: 90), bookmark.url, target: '_blank', class: 'link'
   - if bookmark.description.present?
     .description
       = simple_format bookmark.description
-  .tags
-    = bookmark.tag_array.map { |tag| link_to(tag, bookmarks_path(tag: tag), class: 'tag') }.join(", ").html_safe
+  - if bookmark.tag_array.any?
+    .tags
+      - bookmark.tag_array.each do |tag|
+        = link_to(tag, bookmarks_path(tag: tag), class: 'tag')
 
   .info
     %span.date{title: l(bookmark.created_at)}
@@ -17,8 +20,8 @@
         = t('.by_author', author: bookmark.user.username)
   - if user_signed_in? && bookmark.user == current_user
     .links
-      = link_to t('edit'), edit_bookmark_path(bookmark)
-      = link_to t('destroy'), bookmark, :confirm => t('confirm'), :method => :delete
+      = link_to t('edit'), edit_bookmark_path(bookmark), class: 'edit'
+      = link_to t('destroy'), bookmark, :confirm => t('confirm'), :method => :delete, class: 'destroy'
   - if user_signed_in? && bookmark.user != current_user
     .links
-      = link_to t('.copy'), new_bookmark_path(copy_id: bookmark.id)
+      = link_to t('.copy'), new_bookmark_path(copy_id: bookmark.id), class: 'copy'
