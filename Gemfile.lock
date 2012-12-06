@@ -96,6 +96,9 @@ GEM
       factory_girl (~> 4.1.0)
       railties (>= 3.0.0)
     ffi (1.2.0)
+    font-awesome-sass-rails (2.0.0.0)
+      railties (>= 3.1.1)
+      sass-rails (>= 3.1.1)
     foreigner (1.2.1)
       activerecord (>= 3.0.0)
     fssm (0.2.9)
@@ -256,6 +259,7 @@ DEPENDENCIES
   database_cleaner
   devise
   factory_girl_rails (~> 4.1.0)
+  font-awesome-sass-rails
   foreigner
   haml
   haml-rails
