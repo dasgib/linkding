@@ -3,6 +3,7 @@
 @import compass/css3/images
 @import compass/utilities/lists
 @import compass/typography/links
+@import icons
 @import base
 
 +blueprint-typography
@@ -52,6 +53,10 @@ body
   .account
     width: (3 * grid-column-width()) - ($grid-gutter * 2) - 35px
     overflow: hidden
+  .signout
+    +icon-before($icon-signout, 3px)
+  .signin
+    +icon-before($icon-signin, 3px)
 
 #content
   +columns(9)

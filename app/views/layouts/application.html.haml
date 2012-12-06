@@ -27,9 +27,9 @@
             = avatar(current_user, id: 'avatar', https: true)
             .account
               = current_user.email
-            = link_to t('layout.sign_out'), destroy_user_session_path
+            = link_to t('layout.sign_out'), destroy_user_session_path, class: "signout"
           - else
-            = link_to t('layout.sign_in'), new_user_session_path
+            = link_to t('layout.sign_in'), new_user_session_path, class: "signin"
 
     #main
       .container
