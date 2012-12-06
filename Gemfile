@@ -28,6 +28,7 @@ group :assets do
   gem 'compass-lucid-grid', require: 'lucid'
   gem 'jquery-ui-rails'
   gem 'turbo-sprockets-rails3'
+  gem 'font-awesome-sass-rails'
 end
 
 group :test do

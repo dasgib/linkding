@@ -1,3 +1,4 @@
+@import "base"
 @import "blueprint/form"
 
 $input-width: 500px
@@ -25,3 +26,18 @@ form
 
   .actions
     margin: 10px 0
+
+  .alert
+    margin-bottom: 10px
+    color: #e00
+
+  .field_with_errors
+    input
+      border-color: #e00
+      background-color: #fee
+    .error
+      display: inline-block
+      color: #e00
+      margin-bottom: 8px
+      margin-left: 5px
+
