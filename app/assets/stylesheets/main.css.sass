@@ -11,23 +11,37 @@
 body
   background-color: $background-color
 
-#header
+#header, #main
+  +box-sizing(border-box)
   width: 100%
-  padding: 5px 0
+  min-width: 250px
+  padding: 5px 10px
+
+  .container
+    width: 100%
+    max-width: 990px
+    position: relative
+    margin: 0 auto
+
+  .main, #content
+    +box-sizing(border-box)
+    width: 100%
+    padding-right: 180px
+
+  #account-nav, #sidebar
+    position: absolute
+    right: 0
+    top: 0
+    width: 150px
+
+
+#header
   margin-bottom: 15px
   background-color: $header-background-color
   +background(linear-gradient(top, lighten($header-background-color, 2%), $header-background-color))
   border-bottom: 1px solid darken($header-background-color, 8%)
 
-.container
-  +container
-  position: relative
-
-#header .main
-  +columns(9)
-
 #logo
-  // +columns(2)
   margin-bottom: 0
   font-size: 2em
   line-height: 30px
@@ -37,7 +51,6 @@ body
     +link-colors($font-color, lighten($font-color, 30%))
 
 #navigation
-  // +columns(7)
   ul
     +horizontal-list
     li
@@ -48,22 +61,16 @@ body
       line-height: 30px
 
 #account-nav
-  +columns(3)
   line-height: 1.3
   .account
-    width: (3 * grid-column-width()) - ($grid-gutter * 2) - 35px
+    // width: (3 * grid-column-width()) - ($grid-gutter * 2) - 35px
     overflow: hidden
   .signout
     +icon-before($icon-signout, 3px)
   .signin
     +icon-before($icon-signin, 3px)
 
-#content
-  +columns(9)
-
 #sidebar
-  +columns(3)
-
   h2
     font-size: 1.5em
     margin-bottom: 0.5em

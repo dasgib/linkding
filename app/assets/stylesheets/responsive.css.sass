@@ -1,73 +1,19 @@
-@import "compass/utilities/lists"
-@import "compass/css3/box-sizing"
-
-@mixin regrid($grid-widthx, $grid-gutterx: 5px, $textarea-height: 150px, $account-columns: 3)
-  $grid-columns: 12
-  $grid-gutter: $grid-gutterx
-  $grid-width: $grid-widthx
-  +grid-reinit
-
-  .container
-    padding: 0
-  #header .main
-    +columns($grid-columns - $account-columns)
-  #account-nav
-    +columns($account-columns)
-    .account
-      width: ($account-columns * grid-column-width()) - ($grid-gutter * 2) - 35px
-  #content
-    +columns(9)
-  #sidebar
-    +columns(3)
-
-  #header .main, #account-nav, #content, #sidebar
-    margin-left: $grid-gutter
-    margin-right: $grid-gutter
-
-  #navigation ul li a
-    padding: 0
-
-  $input-width: $grid-width - 2 * $grid-gutter - 12px - 20px
-  form.wide
-    +blueprint-form-sizes($input-width: $input-width, $textarea-width: $input-width, $textarea-height: $textarea-height)
-
-@mixin break-navigation($width)
+@media screen and (max-width: 660px)
   #header
     padding-bottom: 0
+    .main
+      padding-right: 0
   #navigation
     ul
-      width: $width
+      width: 100%
       clear: left
       padding-top: 5px
 
-@media screen and (max-width: 990px) and (min-width: 651px)
-  +regrid($grid-widthx: 640px)
-  #navigation ul li a
-    padding: 0
-
-@media screen and (min-width: 491px) and (max-width: 650px)
-  +regrid($grid-widthx: 480px, $textarea-height: 90px, $account-columns: 4)
-  +break-navigation(460px)
-
 @media screen and (max-width: 490px)
-  +regrid(360px, 5px, 90px, 5)
-  +break-navigation(100%)
-  #navigation
-    ul
-      padding: 5px 0
+  #main
+    #content
+      padding-right: 0
+    #sidebar
+      position: relative
       width: 100%
-      li a
-        font-size: 0.9em
-  body
-    min-width: 250px
-  .container, #header .main, #main, #header, #sidebar, #navigation, #content
-    width: 100%
-    margin-left: 0
-    margin-right: 0
-  .container
-    padding: 0 5px
-    +box-sizing(border-box)
-  #account-nav
-    position: absolute
-    top: 0
-    right: 0
+      margin-top: 20px
