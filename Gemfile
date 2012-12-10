@@ -52,6 +52,7 @@ end
 group :development do
   # Deployment
   gem 'capistrano'
+  gem 'rvm-capistrano'
 
   gem 'thin'
 end
