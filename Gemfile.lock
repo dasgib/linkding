@@ -63,8 +63,6 @@ GEM
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
-    compass-lucid-grid (0.5.1)
-      compass (>= 0.11)
     compass-rails (1.0.3)
       compass (>= 0.12.2, < 0.14)
     cucumber (1.2.1)
@@ -253,7 +251,6 @@ DEPENDENCIES
   capybara (~> 2.0.0)
   coffee-rails (~> 3.2.0)
   compass
-  compass-lucid-grid
   compass-rails
   cucumber
   cucumber-rails
