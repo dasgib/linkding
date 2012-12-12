@@ -380,6 +380,13 @@ CREATE INDEX index_bookmarks_on_site_id ON bookmarks USING btree (site_id);
 
 
 --
+-- Name: index_bookmarks_on_updated_at; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_bookmarks_on_updated_at ON bookmarks USING btree (updated_at);
+
+
+--
 -- Name: index_bookmarks_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -526,3 +533,5 @@ INSERT INTO schema_migrations (version) VALUES ('20120326154756');
 INSERT INTO schema_migrations (version) VALUES ('20120328152244');
 
 INSERT INTO schema_migrations (version) VALUES ('20121130113503');
+
+INSERT INTO schema_migrations (version) VALUES ('20121206140808');
