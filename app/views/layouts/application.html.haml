@@ -33,10 +33,10 @@
 
     #main
       .container
-        #content
+        #content{class: content_for?(:sidebar) ? 'has_sidebar' : 'no_sidebar'}
           - flash.each do |name, msg|
             = content_tag :div, msg, id: "flash_#{name}", class: 'flash'
           = yield
-
-        #sidebar
-          = yield :sidebar
+        - if content_for? :sidebar
+          #sidebar
+            = yield :sidebar

@@ -16,6 +16,7 @@ body
   width: 100%
   min-width: 250px
   padding: 5px 10px
+  +clearfix
 
   .container
     width: 100%
@@ -27,6 +28,9 @@ body
     +box-sizing(border-box)
     width: 100%
     padding-right: 180px
+
+  #content.no_sidebar
+    padding-right: 0
 
   #account-nav, #sidebar
     position: absolute
@@ -69,6 +73,8 @@ body
     +icon-before($icon-signout, 3px)
   .signin
     +icon-before($icon-signin, 3px)
+    display: block
+    padding-top: 5px
 
 #sidebar
   h2
