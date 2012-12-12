@@ -16,6 +16,7 @@ gem 'has_scope'
 gem 'will_paginate', '~> 3.0'
 gem 'nokogiri'
 gem 'activerecord-postgres-array'
+gem 'rack-mini-profiler'
 
 # Gems used only for assets and not required
 # in production environments by default.
