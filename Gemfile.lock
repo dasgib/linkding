@@ -1,10 +1,10 @@
 GIT
   remote: git://github.com/charliesome/better_errors.git
-  revision: 175fa0285deff6d135a1ef13838bd7565959337f
+  revision: 068e37f773ec083aaab7a0e1772b1e95d62b63d8
   specs:
-    better_errors (0.2.0)
+    better_errors (0.3.2)
       coderay (>= 1.0.0)
-      erubis (>= 2.7.0)
+      erubis (>= 2.6.6)
 
 GEM
   remote: https://rubygems.org/
