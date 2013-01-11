@@ -19,12 +19,12 @@ Feature: Viewing bookmarks
 
   Scenario: Paginate bookmarks
     Given I have no bookmarks
-    And I create 70 bookmarks
+    And I create 35 bookmarks
     When I am on the bookmarks page
-    Then I should see 30 bookmarks
-    And I should see 3 pages
-    When I follow "3"
     Then I should see 10 bookmarks
+    And I should see 4 pages
+    When I follow "4"
+    Then I should see 5 bookmarks
 
   Scenario: Filter by tag
     Given there is a bookmark with this data:
