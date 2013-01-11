@@ -54,7 +54,7 @@ end
 
 group :development do
   # Deployment
-  gem 'capistrano'
+  gem 'capistrano', :github => 'capistrano/capistrano'
   gem 'rvm-capistrano'
 
   gem 'thin'
